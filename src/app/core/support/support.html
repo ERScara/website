@@ -1,0 +1,42 @@
+<!-- Solicitud de eliminación de cuenta -->
+ 
+<div>
+    <h3>| Solicitud de eliminación de cuenta |</h3>
+    <br />
+    <p>Contacta al administrador del sitio para eliminar tu cuenta.</p>
+    <br />
+@if (!messageSent) {
+ <section class="login-form">
+    <form [formGroup]="supportForm" (ngSubmit)="sendRequest()">
+       <div  class="form-input">
+        <label for="username" id="gap-label">Usuario:</label>
+        <input type="text" formControlName="username" placeholder="User1" readonly>
+        <br />
+    </div> <br/>
+    <br/>
+       <div  class="form-input">
+        <label for="email" id="gap-email">Correo Electrónico:</label>
+        <input type="email" formControlName="email" placeholder="example@example.com" readonly>
+        <br />
+    </div> <br/>
+    <br/>
+    <div>
+        <textarea formControlName="reason" id="gap-textarea" placeholder="Cuéntanos por qué deseas marcharte..." maxlength="3000"></textarea>
+        <br/>
+        <small id="gap-textarea">Caracteres: {{supportForm.get('reason')?.value?.length || 0 }} / 3000</small>
+    </div>
+    <br/>
+    @if (errorMessage) { <p>{{ errorMessage }}</p>}
+    <button [disabled]="supportForm.invalid || isSending" type="submit" class="form-button">{{ isSending ? 'Enviando...' : 'Enviar Solicitud'}}</button>
+    <br/>
+    </form>
+ </section>
+} @else {
+    <div>
+        <h2>Solicitud enviada con éxito ✅</h2>
+        <p>La eliminación de tu cuenta es definitiva. El administrador se pondrá en contacto por correo para explicar
+           cualquiér situación o resolver cualquier duda. Gracias por ser parte de esta comunidad.
+        </p>
+    </div>
+}
+</div>

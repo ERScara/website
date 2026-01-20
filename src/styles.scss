@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: beige;
+    padding: 5px;
+    margin: 14px;
+}
+
+header {
+    color: lightcoral;
+    padding: 20px;
+    text-align: center;
+}
+
+#Output {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+    padding: 10px;
+}
+
+#Output h3 {
+    text-align: center;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: black;
+}
+
+#chapter {
+    background-color: lightblue;
+    color: #ff3456;
+    padding: 20px;
+    border: 2px dashed;
+    border-radius: 5px;
+    border-color: burlywood;
+    text-align: center;
+}
+
+#header {
+    color: #ff3456;
+    padding: 20px;
+    text-align: center;
+}
+
+#alignment {
+    text-align: center;
+    margin: auto;
+}

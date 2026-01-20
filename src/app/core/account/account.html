@@ -1,0 +1,55 @@
+<!-- Creación de cuenta-->
+
+<br />
+<h3>| Crea tu cuenta |</h3>
+<br />
+<br />
+<section class="login-form">
+   <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div  class="form-input">
+        <label for="username" id="gap-label">Usuario:</label>
+        <input type="text" formControlName="username" placeholder="User1" [ngClass]="{'is-invalid': f['username'].touched && f['username'].invalid}">
+        <br />
+        @if (f['username'].touched && f['username'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">El usuario es obligatorio.</small></em>
+        }
+        @if (f['username'].errors?.['pattern']) {
+            <em><small class="invalid-feedback" font-weight="600">No emplee simbolos extraños aquí.</small></em>
+        }
+    </div> <br/>
+    <br/>
+       <div  class="form-input">
+        <label for="email" id="gap-email">Correo Electrónico:</label>
+        <input type="email" formControlName="email" placeholder="example@example.com" [ngClass]="{'is-invalid': f['email'].touched && f['email'].invalid}">
+        <br />
+        @if (f['email'].touched && f['email'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">El correo electrónico es un campo obligatorio.</small></em>
+        }
+        @if (f['email'].errors?.['pattern']) {
+            <em><small class="invalid-feedback" font-weight="600">Los correos electrónicos válidos tienen un '@'.</small></em>
+        }
+    </div> <br/>
+    <br/>
+    <div class="form-input">
+        <label for="password" id="gaps">Contraseña:</label> 
+        <input type="password" formControlName="password" placeholder="************" [ngClass]="{'is-invalid': f['password'].touched && f['password'].invalid}">
+        <br />
+        @if (f['password'].touched && f['password'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">La contraseña es obligatoria.</small></em>
+        }
+    </div> <br/>
+    <br/>
+        <div class="form-input">
+        <label for="repeatpass" id="account-pass">Repetir Contraseña:</label> 
+        <input type="password" formControlName="repeatpass" placeholder="************" [ngClass]="{'is-invalid': f['password'].touched && f['password'].invalid}">
+        <br />
+        @if (f['password'].touched && f['password'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">Las contraseñas no coinciden.</small></em>
+        }
+    </div> <br/>
+    <br/>
+    <br/>
+    <button [disabled]="registerForm.invalid" type="submit" class="form-button">Crear</button>
+    <br/>
+   </form> <br/>
+</section>

@@ -1,0 +1,38 @@
+<!-- Login usuarios -->
+
+<br />
+<h3>| Ingresa a tu cuenta |</h3>
+<br />
+<br />
+<section class="login-form">
+   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div  class="form-input">
+        <label for="username" id="gap-label">Usuario:</label>
+        <input type="text" formControlName="username" autocomplete="username" placeholder="User1" [ngClass]="{'is-invalid': f['username'].touched && f['username'].invalid}">
+        <br />
+        @if (f['username'].touched && f['username'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">El usuario es obligatorio.</small></em>
+        }
+         @if (f['username'].errors?.['pattern']) {
+            <em><small class="invalid-feedback" font-weight="600">No emplee simbolos extraños aquí.</small></em>
+        }
+    </div> <br/>
+    <br/>
+    <div class="form-input">
+        <label for="password">Contraseña:</label> 
+        <input type="password" id="gaps" autocomplete="current-password" formControlName="password" placeholder="************" [ngClass]="{'is-invalid': f['password'].touched && f['password'].invalid}">
+        <br />
+        @if (f['password'].touched && f['password'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">La contraseña es obligatoria.</small></em>
+        }
+    </div> <br/>
+    <br/>
+    <p>¿Todavía no tienes cuenta? Ingresa <a href="http://localhost:4200/account"><i>aquí</i></a></p>
+    <br/>
+    <p>¿Deseas reestablecer tu contraseña? Ingresa <a href="http://localhost:4200/new-pass"><i>aquí</i></a></p>
+    <br/>
+    <button [disabled]="loginForm.invalid" type="submit" class="form-button">Ingresar</button>
+    <br/>
+    <br/>
+   </form> <br/>
+</section>

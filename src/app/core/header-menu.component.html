@@ -1,0 +1,20 @@
+<nav class="menu">
+    <ul>
+        <li><a routerLink="Inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a></li>
+        @for(num of [1, 2, 3, 4, 5, 6]; track num) {
+        <li><a [routerLink]="'/Capítulo_' + num" routerLinkActive="active">Capítulo N°{{ num }}</a></li>
+        }
+    </ul>
+</nav>
+<nav>
+    <div>
+    @if (authService.IsLoggedIn()) {
+        <div>
+            <p>¡Bienvenido, <strong>{{ authService.currentUser()?.username }}</strong>!</p>
+        </div>
+        <button type="button" class="form-button" (click)="authService.logout()">Cerrar Sesión</button>
+    } @else {
+        <button routerLink="/login" type="button" class="form-button" (click)="authService.login('username')">Ingresar</button>
+    }
+    </div>
+</nav>

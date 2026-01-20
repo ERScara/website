@@ -1,0 +1,248 @@
+<h1 id="chapter">~ 1 ~</h1>
+<h1 id="header">Volcanes</h1>
+
+<h2><u>Capítulo Nº1</u>: Volcanes del mundo.</h2>
+<p>En este capítulo veremos los distintos tipos de volcanes e información acerca de ellos. También estudiaremos su altura, su tipo, su composición geológica y su tipo de magma.
+En la siguiente tabla, se muestran la altura (en metros o pies) y los tipos de volcanes de tres volcanes presentes en distintas partes del mundo.</p>
+<p>El volcán de Mauna Loa, en la isla de Hawaii, es un volcan semi-activo perteneciente a la clase protector.
+Los volcanes Erebus y Hekla de la Antártida e Islandia, respectivamente, son estratovolcanes activos todo el año y su control se realiza anualmente por equipos de investigadores expertos en geología de la Universidad de Uppsala.
+Los volcanes pueden estar activos o inactivos, esto puede verse en los registros de la última erupción.</p>
+<p>En internet pueden descargarse recursos, videos e información extra acerca de los volcanes, o pueden comprar nuestro CD interactivo con enciclopedia incorporada.</p>
+<h2><b>Características</b></h2>
+<br />
+<table width="75%">
+    <tr>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Alto</th>
+        <th>Tipo</th>
+        <th>Erupción</th>
+        <th>Magma</th>
+    </tr>
+    <tr>
+        <td>Monte St. Helens</td>
+        <td>Estado de Washington, EE.UU.</td>
+        <td>9677 ft</td>
+        <td>estratovolcán</td>
+        <td>1857, 1980</td>
+        <td>basalto, andesita y dacita</td>
+    </tr>
+    <tr>
+        <td>Erebus</td>
+        <td>Isla Ross, Antártida.</td>
+        <td>3794 m</td>
+        <td>estratovolcán</td>
+        <td>actividad constante</td>
+        <td>basaita y traquita</td>
+    </tr>
+    <tr>
+        <td>Hekla</td>
+        <td>Islandia</td>
+        <td>1491 m</td>
+        <td>estratovolcán</td>
+        <td>1970, 1980, 1991</td>
+        <td>alcalino</td>
+    </tr>
+    <tr>
+        <td>Mauna Loa</td>
+        <td>Hawaii</td>
+        <td>13677 ft</td>
+        <td>shield</td>
+        <td>1984</td>
+        <td>protector</td>
+    </tr>
+    <tr>
+        <td>Vesubio</td>
+        <td>Napoles, Italia.</td>
+        <td>1277 m</td>
+        <td>estratovolcan</td>
+        <td>79 d.C.</td>
+        <td>andesita y dacita</td>
+    </tr>
+    <tr>
+        <td>Monte Pissis</td>
+        <td>Provincia de Catamarca, Argentina.</td>
+        <td>6795 m</td>
+        <td>estratovolcan</td>
+        <td>Hace 2 millones de años</td>
+        <td>andesita y dacita</td>
+    </tr>
+</table>
+<br />
+<br />
+<p>También puede presionar el botón "Mostrar datos" para obtener más información.</p>
+<br />
+<div class="flex-center">
+    <button (click)="toggleVolcanoes()">{{isVisible ? 'Ocultar Datos' : 'Mostrar Datos'}}</button>
+</div>
+<div id="Output">
+    @if (isVisible) {
+        @for (Volcano of vulcan; track Volcano.name) {
+            <h3>{{Volcano.name}}</h3>
+            <p><strong><u>Ubicación</u>: </strong> {{Volcano.location}}</p>
+            <p><strong><u>Altura</u>: </strong> {{Volcano.height}} {{Volcano.unit}}</p>
+            <p><strong><u>Tipo</u>: </strong> {{Volcano.type}}</p>
+            <p><strong><u>Magma</u>: </strong> {{Volcano.magma}}</p>
+            <p><strong><u>Erupciones</u>: </strong> {{Volcano.eruptions}}</p>
+            <p><strong><u>Comentario</u>: </strong> {{Volcano.comment}}</p>
+            <hr style="border: none; height: 3px; background-color: #333; width: 100%;">
+        }
+    }
+</div>
+<!-- <pre>{{ listComments | json}}</pre> -->
+<br />
+<div>
+    <h3><b>Comentarios</b></h3>
+    @for (parent of listComments; track parent.id) {
+        @if (!parent.parent) {
+    <div>
+        <section class="comment-form">
+            <div class="main-comments">    
+                <div>
+                    @if (parent.username) {
+                        <small id="small"><strong>Usuario: {{parent.username}}</strong></small>
+                    } @else {
+                        <small id="small"><strong>[Usuario Eliminado]</strong></small>
+                    }
+                    <small id="small"><span>Fecha de publicación: {{parent.date | date:'dd/MM/yyyy HH:mm'}}</span></small>
+                </div>
+                <span><strong>Dijo:</strong></span>
+                <div>
+                    @if (parent.is_deleted) {
+                       <p id="margin-deleted"> {{parent.message}}</p>
+                    } @else {
+                       <p id="margin"> {{parent.message}}</p>
+                    }  
+                </div>
+                <div class="container">
+                    <div class="child-1">
+                    @if((authService.IsLoggedIn() && !parent.is_deleted) && parent.username !== "Usuario Eliminado") {
+                    <button (click)="like(parent)">+1</button>
+                    }
+                    <div>👍🏻 {{ parent.total_likes }}</div>
+                    </div>
+                    <div class="child-2">
+                    @if((authService.IsLoggedIn() && !parent.is_deleted) && parent.username !== "Usuario Eliminado") {
+                    <button (click)="dislike(parent)">+1</button>
+                    }
+                    <div>👎🏻 {{ parent.total_dislikes }}</div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @if (!authService.IsLoggedIn()){
+                       <p id="end-line">Debes <a routerLink="/login">Iniciar Sesión</a> para calificar.</p>
+                    }
+                </div>
+                <div>
+                    @if ((!parent.is_deleted && authService.IsLoggedIn()) && parent.username !== "Usuario Eliminado") {
+                    <button (click)="setReply(parent)" class="form-button">Responder</button>
+                    }
+                </div>
+                <br />
+                 <div>
+                    @if (((parent.username === authService.currentUser()?.username && !parent.is_deleted) || authService.currentUser()?.is_superuser) && !parent.is_deleted) {
+                        <button type="button" (click)="deleteComment(parent); $event.preventDefault()" class="delete-button">Eliminar Comentario</button>
+                    }
+                </div>
+                <br />
+            </div>
+        </section>
+        <section class="reply-form">
+            <div>
+                @for (child of listComments; track child.id) {
+                    @if (child.parent && isInThread(child, parent.id)) {
+                    <div [class.reply]="child.parent" class="comment-card" [style.margin-left.px]="child.parent !== parent.id ? 20 : 0">
+                        <div>
+                    @if (child.username) {
+                        <small id="small"><strong>Usuario: {{child.username}}</strong></small>
+                    } @else {
+                        <small id="small"><strong>[Usuario Eliminado]</strong></small>
+                    }
+                        <small id="small"><span>Fecha de publicación: {{child.date | date:'dd/MM/yyyy HH:mm'}}</span></small>
+                        <span>Respondiendo a @{{getReplyToName(child.parent)}}</span>
+                        <div>
+                            <span><strong>Dijo:</strong></span>
+                            @if (child.is_deleted) {
+                            <p id="margin-deleted"> {{child.message}}</p>
+                            } @else {
+                            <p id="margin"> {{child.message}}</p>
+                            }  
+                        </div>
+                          <div class="container">
+                            <div class="child-1">
+                                 @if((authService.IsLoggedIn() && !child.is_deleted) && child.username !== "Usuario Eliminado") {
+                                <button (click)="like(child)">+1</button>
+                                 }
+                                <div>👍🏻 {{ child.total_likes }}</div>
+                            </div>
+                            <div class="child-2">
+                                 @if((authService.IsLoggedIn() && !child.is_deleted) && child.username !== "Usuario Eliminado") {
+                                <button (click)="dislike(child)">+1</button>
+                                 }
+                                <div>👎🏻 {{ child.total_dislikes }}</div>
+                            </div>
+                            </div>
+                        <br />
+                        <div>
+                            @if (!authService.IsLoggedIn()){
+                            <p id="end-line">Debes <a routerLink="/login">Iniciar Sesión</a> para calificar.</p>
+                            }
+                        </div>
+                            @if (authService.IsLoggedIn() && child.username !== "Usuario Eliminado") {
+                            <button (click)="setReply(child)" class="form-button">Responder</button>
+                            }
+                            <div>
+                            <br />
+                            @if ((child.username === authService.currentUser()?.username || authService.currentUser()?.is_superuser) && !child.is_deleted) {
+                                <button type="button" (click)="deleteComment(child); $event.preventDefault()" class="delete-button">Eliminar Comentario</button>
+                            }
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                }
+                }
+                </div>
+            </section>
+    </div>
+    }
+    } @empty {
+        <p id="end-line">No hay comentarios aún. ¡Se el primero en comentar!</p>
+    }
+    </div>
+<br />
+@if (authService.IsLoggedIn()) { 
+<div>
+    <h4>Deja tu comentario del tema:</h4>
+    <section class="comment-form">
+    <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+        <br />
+        <input formControlName="username" type="text">
+        <br />
+        <br />
+        <br />
+        @if (replyingTo) {
+            <div>
+                Respondiendo a <strong>{{replyingTo.username}}</strong>
+                <button (click)="replyingTo = null">X</button>
+            </div>
+        }
+        <textarea formControlName="message" (input)="messageForm.get('message')?.updateValueAndValidity()" id="gap-textarea" placeholder="Escribe algo..." maxlength="3000"></textarea>
+        <br/>
+        <small id="gap-textarea">Caracteres: {{messageForm.get('message')?.value?.length || 0}} / 3000</small>
+        <br/>     
+        <br />
+        <br />
+        @if (errorMessage) { <p>{{ errorMessage }}</p>}
+        <button [disabled]="messageForm.get('message')?.invalid || isSending" type="submit" class="form-button">{{ isSending ? 'Enviando...' : 'Enviar Mensaje'}}</button>
+        <br/>
+        <br/>
+    </form>
+    </section>
+</div>
+} @else {
+    <div>
+        <p id="end-line">Debes <a routerLink="/login">Iniciar Sesión</a> para comentar.</p>
+    </div>
+}

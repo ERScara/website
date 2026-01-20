@@ -1,0 +1,38 @@
+<!-- Reestablecer contraseña -->
+
+<div>
+    <h3>| Reestablecer Contraseña |</h3>
+    <br />
+    <p>Reestablece tu contraseña. Se te enviará un mensaje de confirmación por correo.</p>
+    <br />
+ <section class="login-form">
+   <form [formGroup]="resetRequestForm" (ngSubmit)="confirmReset()">
+    <div  class="form-input">
+        <label for="username" id="gap-label">Usuario:</label>
+        <input type="text" formControlName="username" autocomplete="username" placeholder="User1" [ngClass]="{'is-invalid': f['username'].touched && f['username'].invalid}">
+        <br />
+        @if (f['username'].touched && f['username'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">El usuario es obligatorio.</small></em>
+        }
+        @if (f['username'].errors?.['pattern']) {
+            <em><small class="invalid-feedback" font-weight="600">No emplee simbolos extraños aquí.</small></em>
+        }
+    </div> <br/>
+    <br/>
+       <div  class="form-input">
+        <label for="email" id="gap-email">Correo Electrónico:</label>
+        <input type="email" formControlName="email" autocomplete="email" placeholder="example@example.com" [ngClass]="{'is-invalid': f['email'].touched && f['email'].invalid}">
+        <br />
+        @if (f['email'].touched && f['email'].errors?.['required']) {
+            <em><small class="invalid-feedback" font-weight="600">El correo electrónico es un campo obligatorio.</small></em>
+        }
+        @if (f['email'].errors?.['pattern']) {
+            <em><small class="invalid-feedback" font-weight="600">Los correos electrónicos válidos tienen un '@'.</small></em>
+        }
+    </div> <br/>
+    <br/>
+    <br/>
+    <button [disabled]="resetRequestForm.invalid" type="submit" class="form-button">Enviar Enlace</button>
+    <br/>
+   </form> <br/>
+</section>
