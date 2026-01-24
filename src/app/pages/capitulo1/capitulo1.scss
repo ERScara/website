@@ -41,7 +41,13 @@ button {
 
 
 h2 {
-    text-align:center;
+    text-align: left;
+    margin-left: 160px;
+}
+
+#chars {
+    text-align: center;
+    margin-left: 2px;
 }
 
 a {
@@ -58,6 +64,9 @@ h4 {
 
 p {
     text-align: left;
+    margin: auto;
+    width: 100%;
+    max-width: 1000px;
 }
 
 #end-line {
@@ -206,8 +215,6 @@ table {
     display: inline-block;
     vertical-align: middle;
 }
-
-
 
 #small {
     display:flex;
