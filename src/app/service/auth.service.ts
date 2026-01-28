@@ -71,6 +71,13 @@ export class AuthService {
 
         return this.http.post(`http://localhost:8000/api/comments/${CapituloId}/report/`, {}, { headers });
     }
+    hasReported(commentId: number) {
+        const token = localStorage.getItem("token")
+        const headers = new HttpHeaders().set('Authorization', `Token ${token}`)
+        return this.http.get<{has_reported: boolean}>(
+            `http://localhost:8000/api/comments/${commentId}/has_reported/`, {headers},
+        );
+    }
     private loginState(username: string, email:string, is_superuser: boolean) {
        localStorage.setItem('username', username);
        localStorage.setItem('email', email);

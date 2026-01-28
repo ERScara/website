@@ -15,7 +15,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ['id','username', 'message', 'date', 'parent', 'is_deleted', 'has_active_replies', 'total_likes', 'total_dislikes']
+        fields = ['id','username', 'message', 'date', 'parent', 'is_deleted', 'has_active_replies', 'total_likes', 'total_dislikes', 'alreadyReported']
         read_only_fields = ['id','date']
 
     def get_username(self, obj):
@@ -24,7 +24,13 @@ class CommentSerializer(serializers.ModelSerializer):
         return obj.author.username
     
     def get_is_author_active(self, obj):
-        return obj.author is not None or (obj.username and obj.username != "") 
+        return obj.author is not None or (obj.username and obj.username != "")
+
+    def get_alreadyReported(self, obj):
+        user = self.context.get('request').user
+        if user and user.is_authenticated:
+            return obj.red_flags.filter(id=user.id).exists()
+        return False 
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -43,6 +49,6 @@ class CommentSerializer(serializers.ModelSerializer):
         
         unique_words = len(set(p.lower() for p in words))
         if len(words) > 10 and unique_words < (len(words) / 2):
-            raise serializers.ValidationError("Alerta de Spam: contenido demasiado repetitivo")
+            raise serializers.ValidationError("Alerta de Spam: contenido demasiado repetitivo.")
         
         return value

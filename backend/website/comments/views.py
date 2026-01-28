@@ -101,7 +101,13 @@ class CommentsViewSet(viewsets.ModelViewSet):
             'status': 'reportado',
             'current_flags': total_flags,
         }, status=200)   
-
+    
+    @action(detail=True, methods=['get'], permission_classes=[permissions.IsAuthenticated])
+    def has_reported(self, request, pk=None):
+        comment = self.get_object()
+        user = request.user
+        exists = comment.red_flags.filter(id=user.id).exists()
+        return Response({"has_reported": exists})
 
 
  

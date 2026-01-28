@@ -10,4 +10,5 @@ export interface Comments {
     disableBtn2?: boolean;
     is_deleted?: boolean;
     has_active_replies?: boolean;
+    alreadyReported?: boolean;
 }

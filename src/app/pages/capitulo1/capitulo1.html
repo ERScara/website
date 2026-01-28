@@ -129,12 +129,16 @@ Los volcanes pueden estar activos o inactivos, esto puede verse en los registros
                     </div>
                 </div>
                 <br />
-                @if((!parent.is_deleted && authService.IsLoggedIn()) && parent.username !== "Usuario Eliminado") {
+                @if((!parent.is_deleted && authService.IsLoggedIn()) && parent.username !== "Usuario Eliminado" && !parent.alreadyReported && !authService.currentUser()?.is_superuser) {
                 <div>
                     <button class="red-flag-btn" (click)="onReport(parent)">Reportar</button>
                 </div>
-                } @else {
+                } @else if (!authService.IsLoggedIn()) {
                     <p id="end-line">Debes <a routerLink="/login">Iniciar Sesión</a> para reportar.</p>
+                } @else if (parent.alreadyReported && parent.username !== authService.currentUser()?.username && !authService.currentUser()?.is_superuser) {
+                    <span>✅ Reportado</span>
+                } @else if (parent.username === authService.currentUser()?.username && !authService.currentUser()?.is_superuser) {
+                    <em><span id="cspan">Tu comentario ha sido reportado.</span></em>
                 }
                 <div>
                     @if (!authService.IsLoggedIn()){
@@ -190,12 +194,16 @@ Los volcanes pueden estar activos o inactivos, esto puede verse en los registros
                                 <div>👎🏻 {{ child.total_dislikes }}</div>
                             </div>
                             </div>
-                            @if((authService.IsLoggedIn() && !child.is_deleted) && child.username !== "Usuario Eliminado") {
+                            @if((authService.IsLoggedIn() && !child.is_deleted) && child.username !== "Usuario Eliminado" && !child.alreadyReported && !authService.currentUser()?.is_superuser) {
                             <div>
-                                <button class="red-flag-btn" (click)="onReport(child)">Reportar</button>
+                                <button [disabled]="child.alreadyReported" class="red-flag-btn" (click)="onReport(child)">Reportar</button>
                             </div>
-                            } @else {
+                            } @else if (!authService.IsLoggedIn()) {
                                 <p id="end-line">Debes <a routerLink="/login">Iniciar Sesión</a> para reportar.</p>
+                            } @else if (child.alreadyReported && child.username !== authService.currentUser()?.username && !authService.currentUser()?.is_superuser) {
+                                <span>✅ Reportado</span>
+                            } @else if (child.username === authService.currentUser()?.username && !authService.currentUser()?.is_superuser) {
+                                <em><span id="cspan">Tu comentario ha sido reportado.</span></em>
                             }
                         <br />
                         <div>

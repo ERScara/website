@@ -23,7 +23,7 @@ class Comment(models.Model):
     likes = models.ManyToManyField(User, related_name='likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
     red_flags = models.ManyToManyField(User, related_name='red_flags', blank=True)
-    is_reviewed = models.BooleanField(default=False)
+    alreadyReported = models.BooleanField(default=False)
     
     @property
     def has_active_replies(self):

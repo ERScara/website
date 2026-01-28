@@ -115,7 +115,6 @@ export class Capitulo1 implements OnInit {
       })
     }
   }
-
   sendMessage() {
     if (this.messageForm.valid) {
       this.isSending= true;
@@ -195,7 +194,7 @@ export class Capitulo1 implements OnInit {
     if (confirm("¿Estás seguro de que quieres marcar este mensaje para revisión?")) {
       this.authService.reportComment(comment.id).subscribe({
         next: () => {
-          alert("Gracias. El administrador revisará el mensaje.")
+          alert("Gracias por marcar este comentario. El administrador revisará el comentario.")
         }, 
         error: () => {
           alert("No se pudo enviar el reporte, intente nuevamente más tarde.")
