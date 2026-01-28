@@ -1,7 +1,7 @@
 button {
     border-radius: 4px;
     &:hover {
-    background-color: lightgray;
+    background-color: coral;
     cursor: pointer;
     }
 }
@@ -101,8 +101,6 @@ table {
     }
     th {
         background-color: burlywood;
-        border-radius: 6px dashed;
-        border-color: coral;
         padding: 15px;
         color: black;
         font-size: 30px;
@@ -112,6 +110,29 @@ table {
 
 #gap-textarea {
    justify-self: center;
+}
+
+.red-flag-btn {
+   width: 70px;
+   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+   transition: transform 0.2s, background-color 0.2s box-shadow 0.3s ease;
+   border: none;
+   box-shadow: 0 4px 6px rgba(0,0,0, 0.7);
+   height: 30px;
+   background-color: #ff4d4d;
+   display: flex;
+   align-items: center;
+   color:white;
+   font-size: 12px;
+   font-weight: italic;
+   &:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0, 0.5);
+    background-color: coral;
+    transform: scale(1, 1);
+   }
+   &:active {
+    transform: scale(0.9);
+   }
 }
 
 .form-button {

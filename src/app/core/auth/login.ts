@@ -16,6 +16,15 @@ export class Login {
    private authService = inject(AuthService);
    private fb = inject(FormBuilder);
    private router = inject(Router);
+   constructor() {
+    this.checkActiveSession();
+   }
+
+  private checkActiveSession() {
+    if(localStorage.getItem('token')) {
+      console.log("Sesión iniciada.");
+    }
+  }
    formModel = {
     username: '',
     password: '',
@@ -32,6 +41,11 @@ export class Login {
    get f() { return this.loginForm.controls; }
       
   onLogin() {
+    if(localStorage.getItem('token')) {
+      alert("Debes cerrar la sesión actual primero antes de ingresar nuevamente.")
+      this.router.navigate(['/Inicio']);
+      return;
+    }
     if (this.loginForm.invalid) { alert("Por favor, revisa los campos."); return; }
 
     const rawValues = {

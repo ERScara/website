@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import viewsets, permissions
 from .serializers import CommentSerializer
-from .models import Comment
+from .models import Comment, Report
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -46,6 +46,11 @@ class CommentsViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(capitulo_nro=cap_id)
         return queryset.order_by('-date')
     
+    def get_serializer_class(self, *args, **kwargs):
+        if self.action == 'report':
+            return self.serializer_class
+        return super().get_serializer_class()
+    
     @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
     def toggle_like(self, request, pk=None):
         try:
@@ -80,6 +85,22 @@ class CommentsViewSet(viewsets.ModelViewSet):
         except Exception as e:
             return Response ({'error': str(e)}, status=404)
         
+    @action(detail=True, methods=['post'], permission_classes=[IsAuthenticated])
+    def report(self,request, pk=None):
+        comment = self.get_object()
+        user_reporting = request.user
+
+        if comment.author == user_reporting:
+            return Response ({"detail": "No puedes reportar tu propio comentario."}, status=400)
+        
+        comment.red_flags.add(user_reporting)
+        total_flags = comment.red_flags.count()
+        comment.save()
+
+        return Response({
+            'status': 'reportado',
+            'current_flags': total_flags,
+        }, status=200)   
 
 
 

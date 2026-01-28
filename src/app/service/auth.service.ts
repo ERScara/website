@@ -63,6 +63,14 @@ export class AuthService {
 
         return this.http.post(`http://localhost:8000/api/comments/${CapituloId}/toggle_dislike/`, {}, { headers });
     }
+    reportComment(CapituloId: number){
+        const token = localStorage.getItem('token');
+        const headers = new HttpHeaders().set('Authorization', `Token ${token}`);
+
+        console.log("Token enviado: ", `Token ${token}`);
+
+        return this.http.post(`http://localhost:8000/api/comments/${CapituloId}/report/`, {}, { headers });
+    }
     private loginState(username: string, email:string, is_superuser: boolean) {
        localStorage.setItem('username', username);
        localStorage.setItem('email', email);

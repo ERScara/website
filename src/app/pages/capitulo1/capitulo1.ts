@@ -186,4 +186,21 @@ export class Capitulo1 implements OnInit {
       } 
     })
   }
+  onReport(comment: Comments) {
+    const currentUser = localStorage.getItem('username')
+    if (comment.username == currentUser) {
+      alert("No puedes reportar tu propio comentario, si no es de tu agrado puedes eliminarlo.");
+      return;
+    }
+    if (confirm("¿Estás seguro de que quieres marcar este mensaje para revisión?")) {
+      this.authService.reportComment(comment.id).subscribe({
+        next: () => {
+          alert("Gracias. El administrador revisará el mensaje.")
+        }, 
+        error: () => {
+          alert("No se pudo enviar el reporte, intente nuevamente más tarde.")
+        }
+      })
+    }
+  }
 }

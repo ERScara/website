@@ -1,10 +1,11 @@
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework import status
 from django.contrib.auth import authenticate
 from django.core.mail import send_mail
+from comments.models import Comment
 from .models import SupportTicket
 from django.contrib.auth.models import User
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -59,10 +60,11 @@ def request_deletion(request):
     email = request.data.get('email')
     reason = request.data.get('reason')
 
-    ticket = SupportTicket.objects.create(
+    SupportTicket.objects.create(
         username = username,
         email=email,
-        reason=reason
+        reason=reason,
+        category='request_deletion'
     )
 
     subject = f"Solicitud de eliminación de cuenta de: {username}"
@@ -73,6 +75,23 @@ def request_deletion(request):
         return Response({'message':'solicitud enviada con éxito.'}, status=201)
     except Exception as ex:
         return Response({'error': 'Ticket guardado, pero falló el envío de correo.'})
+    
+@api_view(['POST'])
+def report(self, request, pk=None):
+    comment = self.get_object()
+    user_reporting = request.user
+    try:
+        SupportTicket.objects.create (
+            username=user_reporting.username,
+            email=user_reporting.email,
+            category='comment_report',
+            related_comment_id=comment.id
+        )
+        comment.red_flags.add(user_reporting)
+        return Response({'detail': 'Ticket generado.', 'total_flags': comment.red_flags.count() })
+    except Exception as e:
+        print(f"DEBUG ERROR: {e}")
+        return Response({"error:", str(e)}, status=400)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])

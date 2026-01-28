@@ -22,6 +22,8 @@ class Comment(models.Model):
     is_deleted = models.BooleanField(default=False)
     likes = models.ManyToManyField(User, related_name='likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
+    red_flags = models.ManyToManyField(User, related_name='red_flags', blank=True)
+    is_reviewed = models.BooleanField(default=False)
     
     @property
     def has_active_replies(self):
@@ -46,4 +48,13 @@ class Comment(models.Model):
         ordering = ['date']
 
     def __str__(self):
-        return "{} - {}".format(self.username,  self.date)
+        return "{}".format(self.username)
+
+class Report(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="reports")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    reason = models.TextField(blank=True, null= True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "Reporte de {} sobre comentario {}".format(self.user.username, self.comment.id)
