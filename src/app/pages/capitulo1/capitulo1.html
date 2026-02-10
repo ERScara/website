@@ -140,6 +140,7 @@ Los volcanes pueden estar activos o inactivos, esto puede verse en los registros
                 } @else if (parent.username === authService.currentUser()?.username && !authService.currentUser()?.is_superuser) {
                     <em><span id="cspan">Tu comentario ha sido reportado.</span></em>
                 }
+                <br />
                 <div>
                     @if (!authService.IsLoggedIn()){
                        <p id="end-line">Debes <a routerLink="/login">Iniciar Sesión</a> para calificar.</p>

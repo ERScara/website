@@ -35,7 +35,7 @@ class CommentSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         if instance.is_deleted:
-            data['message'] = "Este comentario ha sido eliminado por el usuario."
+            data['message'] = "Este comentario ha sido eliminado por el usuario o bien ha sido moderado."
             data ['total_likes'] = 0
             data ['total_dislikes'] = 0
         return data

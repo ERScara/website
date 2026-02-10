@@ -1,0 +1,38 @@
+img {
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+hr {
+    margin-block:70px;
+    border: none; 
+    height: 3px; 
+    background-color: #333; 
+    width: 70%;
+}
+
+.flex-container {
+    display: flex;
+    width: 250px;
+    border: none;
+    justify-content: center;
+    align-items:center;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+    margin: auto;
+    margin-top: 5px;
+    width: 60%;
+    max-width: 1000px;
+}
+
+div {
+    text-align: center;
+}
