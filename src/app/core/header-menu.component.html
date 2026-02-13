@@ -27,7 +27,10 @@
                 <li><span>Escribir a</span>
                   <div class="search-box">
                      <input type="text" placeholder="Buscar usuario..." class="search-input" (input)="onSearch($event)" (keydown.enter)="onEnterPressed()">
-                     @for (conv of conversations; track conv.id) { Conversación iniciada con {{ getOtherUser(conv) }}} Mensajes no leídos: @if(totalUnreadCount > 0) {{{  totalUnreadCount }}} @else {{{  totalUnreadCount }} @if(searchResults.length === 0 && totalUnreadCount === 0){<li><span id="total-length">No hay mensajes nuevos. Realice una nueva búsqueda para ver si hay otros mensajes.</span></li>}}
+                     @if (authService.IsLoggedIn()) {
+                     Conversaciones iniciadas:
+                     @for (conv of conversations; track conv.id; let idx = $index) { <br /> {{ idx + 1}} - {{ getOtherUser(conv) }} } <br /> <br /> Mensajes no leídos: @if(totalUnreadCount > 0) {{{  totalUnreadCount }}} @else {{{  totalUnreadCount }} @if(searchResults.length === 0 && totalUnreadCount === 0){<li><span id="total-length">No hay mensajes nuevos. Realice una nueva búsqueda para ver si hay otros mensajes.</span></li>}}
+                     }
                     @if (searchResults.length > 0) {
                         <div class="search-results">
                             <h3>Resultados de la búsqueda: </h3>
@@ -51,10 +54,10 @@
                 @for (conv of conversations; track conv.id) { 
                     <li>
                         <button (click)="selectChat(conv)">
-                        Mensajes de {{ getOtherUser(conv) }}
                         @if (conv.unread_count > 0) {
-                            <div class="tiny-circle"></div>
+                        <div class="tiny-circle"></div>
                         }
+                        Mensajes de {{ getOtherUser(conv) }}
                     </button>
                         @if (selectedConversation?.id === conv.id) {
                         <div class="chat-container" #scrollContainer>

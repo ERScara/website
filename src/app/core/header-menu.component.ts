@@ -44,7 +44,7 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     public currentUser: any = null;
     toSendText: '';
     newText: '';
-
+    
     sendMessage() {
         if (!this.newText.trim() || !this.selectedConversation) {
             console.warn("Falta texto o conversación seleccionada");
@@ -90,7 +90,7 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
 
     getOtherUser(conv: Conversation) {
         const other = conv.participants.find(p => p.id !== this.currentUser.id);
-        return other ? other.username : 'Usuario';
+        return other.username;
     }
 
     isOtherUserAdmin(conv: Conversation): boolean {
@@ -213,8 +213,9 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
             this.searchResults = [];
         } else if (!this.authService.IsLoggedIn()) {
             alert("Debe ingresar a su cuenta para buscar usuarios.");
-        }
-         else {
+        } else if (this.currentUser) {
+            alert("No puedes buscarte a tí mismo, busca a otro usuario.");
+        } else {
             alert("No se encontró a ningún usuario con ese nombre.");
         }
     }
