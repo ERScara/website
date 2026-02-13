@@ -18,3 +18,61 @@
     }
     </div>
 </nav>
+<nav>
+    <ul class="menu-desplegable">
+        <li>
+            <span>Mensajes</span>
+            <ul>
+                <li><span>Escribir a</span>
+                  <div class="search-box">
+                     <input type="text" placeholder="Buscar usuario..." class="search-input" (input)="onSearch($event)" (keydown.enter)="onEnterPressed()">
+                    @if (searchResults.length > 0) {
+                        <div class="search-results">
+                            <h3>Resultados de la búsqueda: </h3>
+                            @for (user of searchResults; track user.id) {
+                                <div class="search-item" (mousedown)="selectUser(user); $event.preventDefault()">
+                                    <br />
+                                       <span>@<i>{{ user.username }}</i></span>
+                                    <br />
+                                </div>
+                            }
+                        </div>
+                    }
+                  </div>
+                </li>
+                @for (conv of conversations; track conv.id) { 
+                    <li>
+                        <button (click)="selectChat(conv)">
+                        Mensajes de {{ getOtherUser(conv) }}
+                        @if (conv.unread_count > 0) {
+                                <div class="tiny-circle"></div>
+                        }
+                    </button>
+                        @if (selectedConversation?.id === conv.id) {
+                        <div class="chat-container" #scrollContainer>
+                            <div>
+                               <p>Conversando con {{ getOtherUser(conv) }}</p>
+                               @for (msg of messages; track msg.id) {
+                                <br />
+                                <div class="message-row" [ngClass]="{'sent': msg.is_me, 'received': !msg.is_me}">
+                                    <div [ngClass]="{'bubble-2':msg.is_me, 'bubble': !msg.is_me}">
+                                        <span>{{ msg.text }}</span>
+                                    </div>
+                                </div>
+                                <br />
+                               }
+                               <div class="response">
+                                  <textarea [(ngModel)]="newText" placeholder="Responde..."></textarea>
+                                  <button (click)="sendMessage()">&#8593;</button>
+                               </div>
+                            </div>
+                        </div>
+                        }
+                        </li>
+                        } @empty {
+                            <li><span>No hay mensajes.</span></li>
+                        } 
+                </ul>
+            </li>
+        </ul>
+</nav>

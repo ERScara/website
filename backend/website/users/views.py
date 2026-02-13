@@ -1,16 +1,29 @@
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes, action
 from rest_framework import status
 from django.contrib.auth import authenticate
 from django.core.mail import send_mail
 from comments.models import Comment
+from direct_messages.serializers import ChatUserSerializer
 from .models import SupportTicket
 from django.contrib.auth.models import User
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.auth.tokens import default_token_generator
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def search_users(request):
+    query = request.query_params.get('search', '')
+    if query:
+        users = User.objects.filter(username__icontains=query).exclude(id=request.user.id)[:10]
+    else:
+        users= User.objects.none()
+    serializer = ChatUserSerializer(users, many=True)
+    return Response(serializer.data)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -42,6 +55,7 @@ def login_view(request):
         if user.is_active:
             token, created = Token.objects.get_or_create(user=user)
             return Response({
+                'user_id': user.id,
                 'token': token.key,
                 'username': user.username,
                 'email': user.email,

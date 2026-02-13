@@ -14,6 +14,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django_extensions',
@@ -24,10 +25,25 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'channels',
     'volcanes',
     'users',
-    'comments'
+    'comments',
+    'direct_messages'
 ]
+
+ASGI_APPLICATION = 'config.asgi.application'
+
+WSGI_APPLICATION = 'config.wsgis.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -70,7 +86,6 @@ STATIC_URL = 'static/'
 STSTICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Volcano } from 'C:/Users/esteb/Python/SOA_Projects/website/src/app/models/volcano.model'
+import { Volcano } from '../models/volcano.model';
 
 @Injectable({
     providedIn: 'root',

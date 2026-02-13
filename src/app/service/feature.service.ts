@@ -1,36 +1,36 @@
-import { Feature } from 'C:/Users/esteb/Python/SOA_Projects/website/src/app/models/feature.model'
+import { Message, Conversation } from '../models/feature.model'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
+import { tap } from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class FeatureService {
-    apiURL = 'http://localhost:4200/';
+    private readonly apiURL = 'http://localhost:8000/api/conversations';
     
     private readonly http = inject(HttpClient);
 
-    getFeatures(): Observable<Feature[]> {
-        return this.http.get<Feature[]>(this.apiURL);
+    getConversations(): Observable<Conversation[]> {
+        const token = localStorage.getItem('token');
+        const headers = {
+            'Authorization': `Token ${token}`
+        };
+        return this.http.get<Conversation[]>(`${this.apiURL}`, {headers});
     }
-
-    getFeature(id: number): Observable<Feature> {
-        return this.http.get<Feature>(this.apiURL + '/' + id);
+    startConversation(userId: number): Observable<Conversation> {
+        return this.http.post<Conversation>(`${this.apiURL}/start/`, {
+            user_id: userId
+        });
     }
-
-    sendEmail(email: string): Observable<{message: string}> {
-        return this.http.post<{message: string}>(`${this.apiURL}/email`, email);
+    markAsRead(conversationId: number): Observable<any> {
+        return this.http.post(`${this.apiURL}/${conversationId}/mark_as_read/`, {})
     }
-
-    postFeature(newFeature: Feature): Observable<{message: string}> {
-        return this.http.post<{message: string}>(this.apiURL, newFeature);
+    getMessages(conversationId: number): Observable<Message[]> {
+        return this.http.get<Message[]>(`${this.apiURL}/${conversationId}/messages/`).pipe(
+            tap(msgs => console.log("¡Llegaron mensajes de la API!", msgs))
+        );
     }
-
-    putFeature(updatedFeature: Feature): Observable<{message: string}> {
-        return this.http.put<{message: string}>(`${this.apiURL}/${updatedFeature}`, updatedFeature);
+    sendMessage(conversationId: number, text: string): Observable<Message> {
+        return this.http.post<Message>(`${this.apiURL}/${conversationId}/send_message/`, {text: text});
     }
-
-    deleteFeature(FeatureId: number): Observable<{message: string}> {
-       return this.http.delete<{message: string}>(`${this.apiURL}/${FeatureId}`);
-    }
-
 }

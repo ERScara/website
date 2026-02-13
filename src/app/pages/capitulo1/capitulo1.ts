@@ -84,7 +84,9 @@ export class Capitulo1 implements OnInit {
         const rawData = Array.isArray(data) ? data : (data.results || []);
         this.listComments = rawData.sort((a: any, b: any) => a.id - b.id);
         console.log("Comentarios cargados y ordenados: ", this.listComments);
-        this.cdr.detectChanges();
+        setTimeout(() => {
+          this.cdr.detectChanges();
+        }, 0);  
       },
       error: (err) => console.warn("error cargando comentarios", err)
     })

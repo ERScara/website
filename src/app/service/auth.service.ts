@@ -22,6 +22,8 @@ export class AuthService {
     login(credentials: any): Observable<any> {
         return this.http.post<any>(this.apiUrl, credentials).pipe(
             tap(response => {
+                const userId = response.user_id || response.user?.id;
+                localStorage.setItem('user_id', userId.toString());
                 localStorage.setItem('username', response.username);
                 localStorage.setItem('email', response.email);
                 localStorage.setItem('is_superuser', String(response.is_superuser));
@@ -77,6 +79,16 @@ export class AuthService {
         return this.http.get<{has_reported: boolean}>(
             `http://localhost:8000/api/comments/${commentId}/has_reported/`, {headers},
         );
+    }
+    getCurrentUser() {
+        const id = localStorage.getItem('user_id');
+        const username = localStorage.getItem('username');
+        const token = localStorage.getItem('token');
+        if(!token) return null;
+        return {
+            id: id ? Number(id) : 0,
+            username: username
+        };
     }
     private loginState(username: string, email:string, is_superuser: boolean) {
        localStorage.setItem('username', username);
