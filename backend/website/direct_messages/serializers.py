@@ -5,7 +5,7 @@ from .models import Conversation, Message
 class ChatUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name']
+        fields = ['id', 'username', 'first_name', 'last_name', 'is_superuser']
 
 class MessageSerializer(serializers.ModelSerializer):
     is_me= serializers.SerializerMethodField()

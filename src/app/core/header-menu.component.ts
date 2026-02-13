@@ -93,6 +93,11 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
         return other ? other.username : 'Usuario';
     }
 
+    isOtherUserAdmin(conv: Conversation): boolean {
+        const other = conv.participants.find(p => p.id !== this.currentUser.id);
+        return other?.is_superuser || false;
+    }
+
     ngOnInit() {
          this.wsService.messages$.subscribe({
                 next: (data) => {
@@ -196,13 +201,20 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
         this.searchResults = [];
     }
 
+    get totalUnreadCount(): number {
+        return this.conversations.reduce((sum, conv) => sum + (conv.unread_count || 0), 0);
+    }
+
     onEnterPressed() {
         if (this.searchResults && this.searchResults.length > 0) {
             const firstUser = this.searchResults[0];
             console.log('Abriendo chat directo con: ', firstUser.username);
             this.selectUser(firstUser);
             this.searchResults = [];
-        } else {
+        } else if (!this.authService.IsLoggedIn()) {
+            alert("Debe ingresar a su cuenta para buscar usuarios.");
+        }
+         else {
             alert("No se encontró a ningún usuario con ese nombre.");
         }
     }

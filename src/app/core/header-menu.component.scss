@@ -63,26 +63,40 @@
     display: table;
     box-sizing: border-box;
     background-color: bisque;
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-
     button {
         background-color: bisque;
     }
+    .button-back {
+        background-color: aliceblue;
+        margin-bottom: 3px;
+    }
 
     &:hover {
-         background-color: antiquewhite;
+        background-color: antiquewhite;
+    }
+
+    #total-length{
+        width: 300px;
+        max-width:max-content;
     }
    
     li {
         position: relative;
         display: block;
         width: 100px;
-        text-align: justify;
+        text-align: left;
         span {
         text-decoration: none;
-        padding: 5px;
+        padding: 7px;
+        display: flex;
+        text-align: left;
+        font-size: 15px;
+        max-width: fit-content;
+        margin: auto;
+        width: 100%;
         color: #333;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
@@ -127,12 +141,16 @@
 .chat-container {
     display: flex;
     position:absolute;
+    border: 10px solid burlywood;
+    border-radius: 6px;
+    background-clip: padding-box;
     z-index: 1000;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     flex-direction:column;
     gap: 10px;
     padding: 15px;
     margin-left: 100px;
+    margin-top: -35px;
     overflow-y: auto;
     width:300px;
     height: fit-content;
@@ -140,6 +158,9 @@
     background-color: lightslategrey;
 }
 
+h3 {
+    text-align:center;
+}
 .message-row {
     display: flex;
     width: 100%;
@@ -242,7 +263,7 @@
     display: inline-flex;
     flex-direction: column;
     z-index: 1000;
-    margin-left: 100px;
+    margin-left: 0;
     margin-bottom: 30px;
     width: 280px;
     background: white;
@@ -257,6 +278,7 @@
     border-radius: 5px;
     font-family: inherit;
     outline: none;
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
 }
 
 .search-results {

@@ -23,16 +23,22 @@
         <li>
             <span>Mensajes</span>
             <ul>
+                @if (!selectedConversation) {
                 <li><span>Escribir a</span>
                   <div class="search-box">
                      <input type="text" placeholder="Buscar usuario..." class="search-input" (input)="onSearch($event)" (keydown.enter)="onEnterPressed()">
+                     @for (conv of conversations; track conv.id) { Conversación iniciada con {{ getOtherUser(conv) }}} Mensajes no leídos: @if(totalUnreadCount > 0) {{{  totalUnreadCount }}} @else {{{  totalUnreadCount }} @if(searchResults.length === 0 && totalUnreadCount === 0){<li><span id="total-length">No hay mensajes nuevos. Realice una nueva búsqueda para ver si hay otros mensajes.</span></li>}}
                     @if (searchResults.length > 0) {
                         <div class="search-results">
                             <h3>Resultados de la búsqueda: </h3>
                             @for (user of searchResults; track user.id) {
                                 <div class="search-item" (mousedown)="selectUser(user); $event.preventDefault()">
                                     <br />
-                                       <span>@<i>{{ user.username }}</i></span>
+                                       <span>&#64;<i>{{ user.username }}
+                                                 @if (user.is_superuser) {
+                                                    <i>(Admin)</i>
+                                                 }
+                                       </i></span>                           
                                     <br />
                                 </div>
                             }
@@ -40,18 +46,25 @@
                     }
                   </div>
                 </li>
+                }
+                @else {
                 @for (conv of conversations; track conv.id) { 
                     <li>
                         <button (click)="selectChat(conv)">
                         Mensajes de {{ getOtherUser(conv) }}
                         @if (conv.unread_count > 0) {
-                                <div class="tiny-circle"></div>
+                            <div class="tiny-circle"></div>
                         }
                     </button>
                         @if (selectedConversation?.id === conv.id) {
                         <div class="chat-container" #scrollContainer>
                             <div>
-                               <p>Conversando con {{ getOtherUser(conv) }}</p>
+                               <button (click)="selectedConversation = null" class="button-back">&#8592; Volver</button>
+                               <p>Conversando con {{ getOtherUser(conv) }} 
+                               @if (isOtherUserAdmin(conv)) {
+                                  <i>(Admin)</i>
+                               }
+                               </p>
                                @for (msg of messages; track msg.id) {
                                 <br />
                                 <div class="message-row" [ngClass]="{'sent': msg.is_me, 'received': !msg.is_me}">
@@ -67,11 +80,10 @@
                                </div>
                             </div>
                         </div>
-                        }
-                        </li>
-                        } @empty {
-                            <li><span>No hay mensajes.</span></li>
-                        } 
+                         }
+                    </li>
+                    }
+                } 
                 </ul>
             </li>
         </ul>

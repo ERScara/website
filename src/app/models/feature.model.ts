@@ -3,6 +3,7 @@ export interface ChatUser {
     username: string;
     first_name?: string;
     last_name?: string;
+    is_superuser?: boolean;
 }
 export interface Message {
     id: number;
