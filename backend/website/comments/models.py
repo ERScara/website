@@ -37,6 +37,18 @@ class Comment(models.Model):
     @property
     def total_dislikes(self):
         return self.dislikes.count()
+    @staticmethod
+    def check_spam(text):
+        if not text:
+            return False, ""
+        words = text.split()
+        unique_words = len(set(p.lower() for p in words))
+
+        if len(words) > 500:
+            return True, "Demasiado largo (max 500 palabras)."
+        if len(words) > 10 and unique_words < (len(words) / 2):
+            return True, "Contenido demasiado repetitivo."
+        return False, ""
 
     def delete(self):
         """Sobreescribimos el borrado físico por uno lógico."""

@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 from .serializers import CommentSerializer
 from .models import Comment, Report
 
@@ -32,6 +32,17 @@ class CommentsViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly, IsAuthorOrAdminOrReadOnly]
+
+    def create(self, request, *args, **kwargs):
+        message = request.data.get('message', '')
+        is_spam, reason = Comment.check_spam(message)
+
+        if is_spam:
+            return Response(
+                {"error": f"Spam detectado: {reason}"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user, username=self.request.user.username)

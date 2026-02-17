@@ -240,6 +240,14 @@ table {
     }
 }
 
+textarea {
+    background-color: antiquewhite;
+    width: 260%;
+    max-width:2000px;
+    resize:vertical;
+    height: 200px;
+}
+
 .child-1, .child-2 {
     display: inline-block;
     vertical-align: middle;

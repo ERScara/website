@@ -25,6 +25,14 @@ h3 {
    background-clip:content-box;
 }
 
+textarea {
+    background-color: antiquewhite;
+    resize: none;
+    width: 200%;
+    max-width:500px;
+    height: 200px;
+}
+
 .invalid-feedback {
     color: #fa593c;
     font-size: 15px;
@@ -56,7 +64,7 @@ input {
 }
 
 #gap-email {
-     margin-left: 10px;
+    margin-left: 10px;
 }
 
 .form-input input {

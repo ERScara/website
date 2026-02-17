@@ -150,11 +150,17 @@ export class Capitulo1 implements OnInit {
           console.log("Mensaje enviado", res);
           this.getComments();
           this.replyingTo = null;
+          setTimeout(() => { this.messageSent = false}, 3000);
         },
         error: (err) => {
           this.isSending = false;
-          this.errorMessage = 'No se puede enviar la solicitud. Intenta nuevamente más tarde';
-          console.log("Error al enviar el mensaje", err);
+          if (err.status === 400 && err.error.detail) {
+            this.errorMessage = `Error: ${err.error.detail}`;
+          } else {
+            this.errorMessage = 'No se puede enviar la solicitud. Intenta nuevamente más tarde';
+          }
+          setTimeout(() => {this.errorMessage = null}, 5000);
+          console.error("Error al enviar el mensaje", err);
         }
       });
     }
