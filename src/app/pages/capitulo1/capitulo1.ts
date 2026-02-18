@@ -29,7 +29,9 @@ export class Capitulo1 implements OnInit {
   public replyingTo: Comments | null = null;
   public listComments: Comments[] = [];
 
+  totalComments = 0;
   isVisible = false;
+  showComments = false;
   public vulcan: Volcano[] = [];
 
   setReply(comment: Comments) {
@@ -74,8 +76,8 @@ export class Capitulo1 implements OnInit {
     this.volcanoService.getVolcanes().subscribe({
       next: (data: Volcano[]) => {
         this.vulcan = data;
-        console.log("Volcanoes loaded", this.vulcan);
-      }, error: (err) => console.log("Error connecting to Django", err)
+        console.log("Volcanes cargados correctamente: ", this.vulcan);
+      }, error: (err) => console.log("Error de conexión con Django: ", err)
     })
   }
   getComments(){
@@ -83,18 +85,25 @@ export class Capitulo1 implements OnInit {
       next: (data: any) => {
         const rawData = Array.isArray(data) ? data : (data.results || []);
         this.listComments = rawData.sort((a: any, b: any) => a.id - b.id);
+        this.totalComments = this.listComments.length;
         console.log("Comentarios cargados y ordenados: ", this.listComments);
         setTimeout(() => {
           this.cdr.detectChanges();
         }, 0);  
       },
-      error: (err) => console.warn("error cargando comentarios", err)
+      error: (err) => console.warn("error cargando comentarios: ", err)
     })
   }
   toggleVolcanoes() {
      this.isVisible = !this.isVisible;
      if (this.isVisible && this.vulcan.length === 0) {
       this.loadVolcanoes();
+     }
+  }
+  toggleComments() {
+     this.showComments = !this.showComments;
+     if (this.showComments && this.listComments.length === 0) {
+        this.getComments();
      }
   }
   deleteComment(comment: Comments) {   
@@ -127,7 +136,7 @@ export class Capitulo1 implements OnInit {
       console.log("Token Recuperado:", token);
 
       if (!token) {
-        console.error("No se encontró un token en el almacenamiento local");
+        console.error("No se encontró un token en el almacenamiento local.");
         return;
       }
 
@@ -157,10 +166,10 @@ export class Capitulo1 implements OnInit {
           if (err.status === 400 && err.error.detail) {
             this.errorMessage = `Error: ${err.error.detail}`;
           } else {
-            this.errorMessage = 'No se puede enviar la solicitud. Intenta nuevamente más tarde';
+            this.errorMessage = 'No se puede enviar la solicitud. Intenta nuevamente más tarde.';
           }
           setTimeout(() => {this.errorMessage = null}, 5000);
-          console.error("Error al enviar el mensaje", err);
+          console.error("Error al enviar el mensaje: ", err);
         }
       });
     }

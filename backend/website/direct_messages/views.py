@@ -1,7 +1,8 @@
 from rest_framework import viewsets, status, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from .models import Conversation, Message
+from django.utils import timezone
+from .models import Conversation, Message, ChatClear
 from .serializers import ConversationSerializer, MessageSerializer
 
 class ConversationViewSet(viewsets.ModelViewSet):
@@ -14,7 +15,12 @@ class ConversationViewSet(viewsets.ModelViewSet):
     
     @action(detail=True, methods=['get'])
     def messages(self,request, pk=None):
+        conversation = self.get_object()
+        user = request.user
+        clear_record = ChatClear.objects.filter(user=user, conversation=conversation).first()
         queryset = Message.objects.filter(conversation_id=pk).order_by('created_at')
+        if clear_record:
+            queryset = queryset.filter(created_at__gt=clear_record.cleared_at)
         print("Mensajes encontrados: {}".format(queryset.count()))
         serializer = MessageSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)
@@ -44,6 +50,16 @@ class ConversationViewSet(viewsets.ModelViewSet):
         conversation.messages.filter(is_read=False).exclude(sender=request.user).update(is_read=True)
 
         return Response({'status': 'Mensajes markado como leídos'}, status=status.HTTP_200_OK)
+    
+    @action(detail=True, methods=['post'])
+    def clear(self, request, pk=None):
+        conversation = self.get_object()
+        ChatClear.objects.update_or_create(
+            user=request.user,
+            conversation=conversation,
+            defaults={'cleared_at': timezone.now()}
+        )
+        return Response({'status': 'vista limpia'})
     
     @action(detail=False, methods=['post'])
     def start(self, request):

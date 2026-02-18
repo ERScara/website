@@ -74,6 +74,14 @@
         margin-bottom: 3px;
     }
 
+    .button-clean {
+        background-color: aliceblue;
+        position:sticky;
+        margin-bottom: 3px;
+        margin-left:auto;
+        display: table;
+    }
+
     &:hover {
         background-color: antiquewhite;
     }

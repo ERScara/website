@@ -154,6 +154,18 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
         });
     }
 
+    onClearChatClick(conversationId: number) {
+        if(confirm('¿Quieres limpiar la pantalla? Los mensajes antiguos se guardarán en el historial pero no se verán aquí.')) {
+            this.chatService.clearChat(conversationId).subscribe({
+                next: () => {
+                    this.messages = [];
+                    alert("Has limpiado tu vista del chat.");
+                },
+                error: (err) => console.error("Error al limpiar chat: ", err)
+            });
+        }
+    }
+
     handleNewMessage(message: any) {
         console.log('Mensaje recibido', message);
         if (this.selectedConversation?.id === message.conversation) {

@@ -30,6 +30,13 @@ export class FeatureService {
             tap(msgs => console.log("¡Llegaron mensajes de la API!", msgs))
         );
     }
+    clearChat(conversationId: number): Observable<any> {
+        const token = localStorage.getItem('token');
+        const headers = {
+            'Authorization': `Token ${token}`
+        };
+        return this.http.post(`${this.apiURL}/${conversationId}/clear/`, {}, {headers});
+    }
     sendMessage(conversationId: number, text: string): Observable<Message> {
         return this.http.post<Message>(`${this.apiURL}/${conversationId}/send_message/`, {text: text});
     }

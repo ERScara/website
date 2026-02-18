@@ -62,6 +62,7 @@
                         @if (selectedConversation?.id === conv.id) {
                         <div class="chat-container" #scrollContainer>
                             <div>
+                               <button (click)="onClearChatClick(selectedConversation.id)" class="button-clean" Title="Limpiar comentarios">&#x1F9F9;</button>
                                <button (click)="selectedConversation = null" class="button-back">&#8592; Volver</button>
                                <p>Conversando con {{ getOtherUser(conv) }} 
                                @if (isOtherUserAdmin(conv)) {

@@ -36,14 +36,14 @@ button {
 .reply-form {
     display: flex;
     justify-content: right;
-    align-items:left;
+    flex-direction: column;
+    align-items:flex-end;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-all;
     width: 79%;
     height: 50%;
 }
-
 
 h2 {
     text-align: left;
@@ -77,6 +77,11 @@ p {
 
 #end-line {
     text-align: center;
+}
+
+#Output{
+    width:100%;
+    max-width:700px;
 }
 
 .form-input input {
