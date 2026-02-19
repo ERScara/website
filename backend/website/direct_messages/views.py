@@ -11,7 +11,12 @@ class ConversationViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """ Retorna solo las conversaciones del usuario activo. """
-        return Conversation.objects.filter(participants=self.request.user).order_by('-updated_at')
+        user = self.request.user
+        print(f"DEBUG: Usuario {user.username} (ID: {user.id}) pidiendo la acción: {self.action}")
+        queryset= Conversation.objects.filter(participants=self.request.user)
+        if self.action == 'list':
+            queryset = queryset.exclude(hidden_for=user)
+        return queryset.order_by('-updated_at')
     
     @action(detail=True, methods=['get'])
     def messages(self,request, pk=None):
@@ -74,7 +79,19 @@ class ConversationViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(conv)
         return Response(serializer.data)
     
-    
+    @action(detail=True, methods=['patch'])
+    def close_chat(self, request, pk=None):
+        chat = self.get_object()
+        chat.hidden_for.add(request.user)
+
+        return Response({'message':'chat ocultado para el usuario actual.'}, status=status.HTTP_200_OK)
+
+    def perform_create(self, serializer):
+        message = serializer.save()
+        chat = message.conversation
+        if chat.hidden_for.exists():
+            chat.hidden_for.clear()
+            chat.save()
 
     @action(detail=False, methods=['post'])
     def get_or_create_chat(self, request):

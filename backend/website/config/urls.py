@@ -6,6 +6,7 @@ from volcanes.views import VolcanoViewSet
 router = routers.DefaultRouter()
 router.register(r'volcanes', VolcanoViewSet)
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),

@@ -12,12 +12,24 @@ class CommentSerializer(serializers.ModelSerializer):
     has_active_replies = serializers.ReadOnlyField()
     total_likes = serializers.ReadOnlyField()
     total_dislikes = serializers.ReadOnlyField()
+    user_vote = serializers.SerializerMethodField()
     has_reported = serializers.SerializerMethodField()
     is_reported_by_anyone = serializers.SerializerMethodField()
 
     class Meta:
         model = Comment
-        fields = ['id','username', 'message', 'date', 'parent', 'is_deleted', 'has_active_replies', 'total_likes', 'total_dislikes', 'has_reported', 'is_reported_by_anyone']
+        fields = ['id',
+                  'username', 
+                  'message', 
+                  'date', 
+                  'parent', 
+                  'is_deleted', 
+                  'has_active_replies', 
+                  'total_likes', 
+                  'total_dislikes', 
+                  'has_reported', 
+                  'is_reported_by_anyone', 
+                  'user_vote']
         read_only_fields = ['id','date']
 
     def get_username(self, obj):
@@ -32,7 +44,16 @@ class CommentSerializer(serializers.ModelSerializer):
         user = self.context.get('request').user
         if user and user.is_authenticated:
             return obj.red_flags.filter(id=user.id).exists()
-        return False 
+        return False
+    
+    def get_user_vote(self, obj):
+        user = self.context.get('request').user
+        if user and user.is_authenticated:
+            if obj.likes.filter(id=user.id).exists():
+                return 'like'
+            if obj.dislikes.filter(id=user.id).exists():
+                return 'dislike'
+        return None
     
     def get_is_reported_by_anyone(self, obj):
         return obj.red_flags.exists()

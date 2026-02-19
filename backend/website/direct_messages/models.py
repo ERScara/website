@@ -5,6 +5,11 @@ class Conversation(models.Model):
     participants= models.ManyToManyField(User, related_name='conversations')
     created_at= models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True)
+    is_active= models.ManyToManyField(User, related_name='closed_chats', blank=True)
+    hidden_for= models.ManyToManyField('auth.User', related_name='stored_chats', blank=True)
+
+    def __str__(self):
+        return f"Chat {self.id}"
 
 class Message(models.Model):
     conversation= models.ForeignKey(Conversation, on_delete=models.CASCADE, related_name='messages')
