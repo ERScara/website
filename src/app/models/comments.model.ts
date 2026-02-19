@@ -12,4 +12,5 @@ export interface Comments {
     has_active_replies?: boolean;
     has_reported?: boolean;
     is_reported_by_anyone?: boolean;
+    user_vote?: 'like' | 'dislike' | null;
 }

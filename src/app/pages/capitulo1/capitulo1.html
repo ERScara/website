@@ -121,13 +121,13 @@ Los volcanes pueden estar activos o inactivos, esto puede verse en los registros
                     <div class="container">
                         <div class="child-1">
                         @if((authService.IsLoggedIn() && !parent.is_deleted) && parent.username !== "Usuario Eliminado") {
-                        <button (click)="like(parent)">+1</button>
+                        <button (click)="like(parent)" [class.active-like]="parent.user_vote === 'like'">+1</button>
                         }
                         <div>👍🏻 {{ parent.total_likes }}</div>
                         </div>
                         <div class="child-2">
                         @if((authService.IsLoggedIn() && !parent.is_deleted) && parent.username !== "Usuario Eliminado") {
-                        <button (click)="dislike(parent)">+1</button>
+                        <button (click)="dislike(parent)" [class.active-dislike]="parent.user_vote === 'dislike'">+1</button>
                         }
                         <div>👎🏻 {{ parent.total_dislikes }}</div>
                         </div>
@@ -196,13 +196,13 @@ Los volcanes pueden estar activos o inactivos, esto puede verse en los registros
                             <div class="container">
                                 <div class="child-1">
                                     @if((authService.IsLoggedIn() && !child.is_deleted) && child.username !== "Usuario Eliminado") {
-                                    <button (click)="like(child)">+1</button>
+                                    <button (click)="like(child)" [class.active-like]="child.user_vote === 'like'">+1</button>
                                     }
                                     <div>👍🏻 {{ child.total_likes }}</div>
                                 </div>
                                 <div class="child-2">
                                     @if((authService.IsLoggedIn() && !child.is_deleted) && child.username !== "Usuario Eliminado") {
-                                    <button (click)="dislike(child)">+1</button>
+                                    <button (click)="dislike(child)" [class.active-dislike]="child.user_vote === 'dislike'">+1</button>
                                     }
                                     <div>👎🏻 {{ child.total_dislikes }}</div>
                                 </div>

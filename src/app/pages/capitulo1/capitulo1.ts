@@ -179,6 +179,7 @@ export class Capitulo1 implements OnInit {
       next: (res: any) => {
         comment.total_likes = res.total_likes;
         comment.total_dislikes = res.total_dislikes;
+        comment.user_vote = comment.user_vote === 'like' ? null : 'like'
         comment.disableBtn1 = true;
         console.log(`Like actualizado: ${comment.total_likes}`);
         this.cdr.detectChanges();
@@ -193,6 +194,7 @@ export class Capitulo1 implements OnInit {
       next: (res: any) => {
         comment.total_dislikes = res.total_dislikes;
         comment.total_likes = res.total_likes;
+        comment.user_vote = comment.user_vote === 'dislike' ? null : 'dislike'
         comment.disableBtn2 = true;
         console.log(`Like actualizado: ${comment.total_likes}`);
         this.cdr.detectChanges();

@@ -10,6 +10,7 @@
     width: 580px;
     height: 300px;
     border-left: none;
+    border-radius: 6px;
     border-right: solid 5px orange;
     p {
         color: black;
@@ -30,7 +31,17 @@ h2 {
     text-align: center;
 }
 
+.prompt {
+    background-color: black;
+    border-radius: 5px;
+    margin-top:auto;
+    max-width: fit-content;
+    justify-self:center;
+    color: lime;
+}
+
 h1 {
+    font-size: 7rem;
     text-align: center;
 }
 

@@ -10,6 +10,7 @@ import { ChatWebSocketService } from '../service/chat-websockets.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { Message, Conversation} from '../models/feature.model';
 
+
 @Component({
     selector: 'app-header-menu',
     standalone: true,
@@ -26,6 +27,8 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     public userService = inject(UserService);
     private cdRef = inject(ChangeDetectorRef);
     private wsService = inject(ChatWebSocketService);
+    private chatCleared = false;
+    public promptreplogo: string = 'assets/img/promptreplogo.svg';
     public readonly menuItems = [
         {label: 'Inicio', route:'/'},
         {label: 'Capítulo N°1', route:'/Capitulo1'},
@@ -158,7 +161,9 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
         if(confirm('¿Quieres limpiar la pantalla? Los mensajes antiguos se guardarán en el historial pero no se verán aquí.')) {
             this.chatService.clearChat(conversationId).subscribe({
                 next: () => {
+                    this.chatCleared = true;
                     this.messages = [];
+                    this.cdRef.detectChanges();
                     alert("Has limpiado tu vista del chat.");
                 },
                 error: (err) => console.error("Error al limpiar chat: ", err)
@@ -166,13 +171,33 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
         }
     }
 
+    closeConversation(id: number, event: Event) {
+        event.stopPropagation();
+        this.chatService.closeChat(id).subscribe({
+            next: () => {
+                this.messages = this.messages.filter(conv => conv.id !== id);
+                if (this.selectedConversation?.id == id) {
+                    this.selectedConversation = null;
+                }
+                this.cdRef.detectChanges();
+                window.location.reload();
+                console.log('Chat almacenado.');
+            },
+            error: (err) => console.error('Error al cerrar chat: ', err)
+        });
+    }
+
     handleNewMessage(message: any) {
         console.log('Mensaje recibido', message);
         if (this.selectedConversation?.id === message.conversation) {
+            if (!this.chatCleared) {
             this.messages.push({
                 ...message,
                 is_me: message.sender === this.currentUser.id
             });
+            } else {
+                this.chatCleared = false;
+            };
             setTimeout(() => {
                 this.cdRef.detectChanges();
             }, 0);

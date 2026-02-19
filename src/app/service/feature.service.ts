@@ -37,6 +37,9 @@ export class FeatureService {
         };
         return this.http.post(`${this.apiURL}/${conversationId}/clear/`, {}, {headers});
     }
+    closeChat(chatId: number): Observable<any> {
+        return this.http.patch(`${this.apiURL}/${chatId}/close_chat/`, {})
+    }
     sendMessage(conversationId: number, text: string): Observable<Message> {
         return this.http.post<Message>(`${this.apiURL}/${conversationId}/send_message/`, {text: text});
     }

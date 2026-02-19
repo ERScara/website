@@ -1,6 +1,10 @@
 <nav class="menu">
     <ul>
-        <li><a routerLink="Inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a></li>
+        <li id="align">
+            <a routerLink="Inicio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="init">
+               <img src="assets/img/promptreplogo.svg" alt="PromptRep Logo" class="brand-logo" >
+            </a>
+        </li>
         @for(num of [1, 2, 3, 4, 5, 6]; track num) {
         <li><a [routerLink]="'/Capítulo_' + num" routerLinkActive="active">Capítulo N°{{ num }}</a></li>
         }
@@ -62,8 +66,11 @@
                         @if (selectedConversation?.id === conv.id) {
                         <div class="chat-container" #scrollContainer>
                             <div>
-                               <button (click)="onClearChatClick(selectedConversation.id)" class="button-clean" Title="Limpiar comentarios">&#x1F9F9;</button>
-                               <button (click)="selectedConversation = null" class="button-back">&#8592; Volver</button>
+                                <div class="actions-container" >
+                                    <button (click)="selectedConversation = null" class="button-back" title="Volver">&#8592;</button>
+                                    <button (click)="onClearChatClick(selectedConversation.id)" class="button-clean" title="Limpiar mensajes">&#x1F9F9;</button>
+                                    <button (click)="closeConversation(conv.id, $event)" class="button-close" title="Cerrar comentario">X</button>
+                                </div>          
                                <p>Conversando con {{ getOtherUser(conv) }} 
                                @if (isOtherUserAdmin(conv)) {
                                   <i>(Admin)</i>
@@ -80,7 +87,7 @@
                                }
                                <div class="response">
                                   <textarea [(ngModel)]="newText" placeholder="Responde..."></textarea>
-                                  <button (click)="sendMessage()">&#8593;</button>
+                                  <button (click)="sendMessage()" title="Enviar">&#8593;</button>
                                </div>
                             </div>
                         </div>

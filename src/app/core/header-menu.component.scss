@@ -1,9 +1,17 @@
 .menu {
     flex-grow: 2;
     color: #343f44;
-    margin-left: 40px;
-    align-items: center;
+    align-items: left;
     flex-direction: row;
+    display:flex;
+}
+
+.brand-logo {
+    display: inline-block;
+    width: 270px;
+    height: auto;
+    background-size: contain;
+    background-repeat:no-repeat;
 }
 
 .menu ul {
@@ -11,11 +19,15 @@
     display: flex;
     gap: 30px;
     justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
 }
 
 .menu ul li {
     margin-right: 30px;
     font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .menu li {
@@ -31,9 +43,15 @@
         padding: 5px;
         border-radius: 5px;
     }
+    #init {
+        color: beige;
+        background-color: transparent;
+        padding: 5px;
+        border-radius: 5px;
+    }
     &:hover {
         border-radius: 4px;
-        background-color: coral;
+        background-color: trasparent;
         cursor: pointer;
     }
 }
@@ -68,10 +86,17 @@
     cursor: pointer;
     button {
         background-color: bisque;
+        white-space: pre-wrap;
+        padding: 5px;
+        word-break: break-all;
     }
     .button-back {
         background-color: aliceblue;
         margin-bottom: 3px;
+        display: table;
+        &:hover {
+            background-color: #fa593c;
+        }
     }
 
     .button-clean {
@@ -80,6 +105,28 @@
         margin-bottom: 3px;
         margin-left:auto;
         display: table;
+        &:hover {
+            background-color: #fa593c;
+        }
+    }
+
+    .button-close {
+        background-color: aliceblue;
+        position:sticky;
+        margin-bottom: 3px;
+        margin-left:auto;
+        display:table;
+        &:hover {
+            background-color: #fa593c;
+        }
+    }
+
+    .actions-container {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        padding: 10px 0;
     }
 
     &:hover {
