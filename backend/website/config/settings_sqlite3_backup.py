@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -100,12 +99,8 @@ CORS_ALLOW_HEADERS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', 'promptrep'),
-        'USER': os.environ.get('POSTGRES_USER', 'promptrep_user'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'estebanRScara'),
-        'HOST': 'localhost',
-        'PORT': 5432
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'dd.sqlite3',
     }
 }
 
