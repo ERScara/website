@@ -1,0 +1,1572 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2026-01-13T17:17:18.497Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Monte St. Helens",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2026-01-13T17:20:22.817Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Erebus",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2026-01-13T17:23:20.903Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "Hekla",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2026-01-13T17:24:23.609Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Mauna Loa",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2026-01-13T17:26:14.405Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "5",
+            "object_repr": "Vesubio",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2026-01-13T17:29:25.003Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "6",
+            "object_repr": "Monte Pissis",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2026-01-13T21:31:00.428Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "Monte St. Helens",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Comentarios\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2026-01-13T21:31:39.469Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Erebus",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Comentarios\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2026-01-13T21:32:04.506Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Mauna Loa",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Comentarios\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2026-01-13T21:32:26.176Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "Erebus",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Historial de Erupciones\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2026-01-15T05:24:22.150Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "2",
+            "object_repr": "esteban",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2026-01-15T08:09:52.121Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "4",
+            "object_repr": "ERScara1",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2026-01-15T08:09:52.136Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "5",
+            "object_repr": "EstebScara",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2026-01-15T08:09:52.136Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "6",
+            "object_repr": "MyUser456",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2026-01-15T08:09:52.136Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "3",
+            "object_repr": "esteban@gmail.com",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2026-01-15T20:12:31.735Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "9",
+            "object_repr": "' OR '1=1'; --",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2026-01-15T23:19:35.690Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "Baja del usuario Rob456",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Reason\", \"Resolved\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2026-01-15T23:22:04.244Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "Baja del usuario Rob456",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2026-01-15T23:22:04.246Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "Baja del usuario Rob456",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2026-01-15T23:41:16.717Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "3",
+            "object_repr": "Baja del usuario Mi_usuario123",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Resolved\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2026-01-15T23:41:45.984Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "3",
+            "object_repr": "Baja del usuario Mi_usuario123",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2026-01-17T21:29:11.031Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "12",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2026-01-17T22:07:50.339Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "11",
+            "object_repr": "Oswald34",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2026-01-17T22:58:10.002Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "11",
+            "object_repr": "Oswald34",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2026-01-18T00:00:09.212Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "13",
+            "object_repr": "Friend_of_volcanoes89",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2026-01-18T00:00:54.037Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "1",
+            "object_repr": "esteb",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2026-01-18T00:29:31.360Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "13",
+            "object_repr": "Friend_of_volcanoes89",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2026-01-18T05:31:37.359Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "8",
+            "object_repr": "User1",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2026-01-18T05:32:28.214Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "8",
+            "object_repr": "User1",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2026-01-18T06:27:27.635Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "8",
+            "object_repr": "User1",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2026-01-19T00:21:09.483Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "12",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2026-01-19T16:43:26.081Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "11",
+            "object_repr": "Oswald34",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2026-01-19T16:46:03.859Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "4",
+            "object_repr": "Baja del usuario Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Resolved\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2026-01-19T16:46:51.025Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "12",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2026-01-19T16:47:23.514Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "13",
+            "object_repr": "Friend_of_volcanoes89",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2026-01-19T17:23:12.639Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "14",
+            "object_repr": "User1",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2026-01-27T21:13:44.585Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "16",
+            "object_repr": "Rob456",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2026-01-27T21:14:05.583Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "15",
+            "object_repr": "ErnestoTaba923",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2026-01-28T00:59:53.202Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78 - 2026-01-19 17:05:21.495139+00:00",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Message\", \"Is reviewed\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2026-01-28T01:00:03.088Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78 - 2026-01-19 17:05:21.495139+00:00",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2026-01-28T01:00:54.816Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2026-01-28T01:09:04.800Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "5",
+            "object_repr": "Friend_of_volcanoes89",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2026-01-28T01:18:19.761Z",
+            "user": 1,
+            "content_type": 4,
+            "object_id": "15",
+            "object_repr": "ErnestoTaba923",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2026-01-28T13:23:57.197Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"AlreadyReported\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2026-01-28T13:25:05.711Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Red flags\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2026-01-28T13:29:32.827Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"AlreadyReported\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2026-01-28T13:36:39.984Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"AlreadyReported\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2026-01-28T13:39:15.641Z",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Lucas78",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"AlreadyReported\"]}}]"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$beEIBUs5r5Qq3kJIeJhYr5$5R9jW0+90ZV8JhDJp7jIQiTxQSN73rNywCmmtibb0e0=",
+            "last_login": "2026-02-10T23:45:15.743Z",
+            "is_superuser": true,
+            "username": "esteb",
+            "first_name": "Esteban Rodolfo",
+            "last_name": "Scaramuzza",
+            "email": "esteban_rodolfo_scaramuzza@yahoo.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-01-13T16:53:43Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 11,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$8C1yELNBcQyMufSFAq7L98$bAmopWocWKZNGW7ZYX5HB4GBbvFX7vv7ZqZnNjoL8Qs=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Oswald34",
+            "first_name": "Osvaldo",
+            "last_name": "Caballero",
+            "email": "osvaldo_caballero@myspace.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-01-17T19:38:48Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 12,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$lvPvhYM2Zs0V9mROxSHdYD$4M8l/VbPHmA19J7CfTZ8KJt0L8FFqPEIVdiAtEiU7no=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Lucas78",
+            "first_name": "Lucas TomÃs",
+            "last_name": "Adreani",
+            "email": "lucas_tomy6@myspace.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-01-17T20:55:24Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 13,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$csydICUOqoUGSxHu1VJN9o$wHzkQ+vXE18gYEPKmMPuhqKovqTH9D4Ubuv/QP9z1cw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Friend_of_volcanoes89",
+            "first_name": "Arturo",
+            "last_name": "Lorenzo",
+            "email": "arturo_lorenzo@myspace.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-01-17T23:48:51Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 14,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$p1nPg7upOT8FMLmGlbP6Es$x33y/pszC3+z0QTN/uQEhSA3t5N3Vhl6onfrFVeusfE=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "User1",
+            "first_name": "",
+            "last_name": "",
+            "email": "este_scara_rodo@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-01-19T17:19:12Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 15,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$kzL5mBD8rdFF8i5w4Zqw5s$fenLCBf5UCN72pKjGKosXgoX8txply7hAWhjLxxL9hs=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "ErnestoTaba923",
+            "first_name": "Ernesto",
+            "last_name": "Tabares",
+            "email": "ernesto_tabares@myspace.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-01-19T17:29:13Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 16,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$8QFdjUg9CNJCYfWL07WCUs$txhwKK2+DmpTSn4HcTt1W+Z9g0h3YEDv1do7zZRMc44=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Rob456",
+            "first_name": "Roberto",
+            "last_name": "Goodman",
+            "email": "robert_goodman@myspace.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-01-27T01:56:46Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 17,
+        "fields": {
+            "password": "pbkdf2_sha256$1200000$R8dzg3VjnlXxfQ996a244C$8aOakqUVRRHv5mMQflx3cYBKEHu6+wBvK1wsk6XGP00=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Roberto56",
+            "first_name": "",
+            "last_name": "",
+            "email": "roberto.juarez@myspace.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2026-02-13T21:07:18.097Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "0b8pd1jfqgvpqs0c82sicbktm03el0mr",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hAsjIBL956hGWYGqRpISrsy3l2bdKHb_977LzXiupRx7TKPE6uzOqrD75aQHlI3wHest6ap1WWekt4UvdOur43ledndv4OCvXzrmCQwmGCiocQ2sHMWwLoTp-gTeUuSB2HMliLA4FkiRAIM3iORy-r9AevzOIA:1vhL1w:ce9-N2kLXzCAKKE_yyd2c4-AAgol4F9jkDejbEFbudU",
+            "expire_date": "2026-02-01T05:08:52.112Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "gtdh3vfybequ20hjjljso3vdgyxtwovn",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hAsjIBL956hGWYGqRpISrsy3l2bdKHb_977LzXiupRx7TKPE6uzOqrD75aQHlI3wHest6ap1WWekt4UvdOur43ledndv4OCvXzrmCQwmGCiocQ2sHMWwLoTp-gTeUuSB2HMliLA4FkiRAIM3iORy-r9AevzOIA:1vpxPv:EhOMikCtvUiUQrNvTcPiZg4wT6IdPR--MO3lEEbUIe4",
+            "expire_date": "2026-02-24T23:45:15.773Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "m2h34gm0iimuc3ytmfbhwfw9t64fx9v7",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hAsjIBL956hGWYGqRpISrsy3l2bdKHb_977LzXiupRx7TKPE6uzOqrD75aQHlI3wHest6ap1WWekt4UvdOur43ledndv4OCvXzrmCQwmGCiocQ2sHMWwLoTp-gTeUuSB2HMliLA4FkiRAIM3iORy-r9AevzOIA:1vhsxV:CsBi1Nc5WBjRI0StXInnGp9vywJksXvr8shNgjwOnZQ",
+            "expire_date": "2026-02-02T17:22:33.548Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "0dceb549418ccfd378c61be8b9f57d89ee9e2448",
+        "fields": {
+            "user": 13,
+            "created": "2026-01-18T00:01:30.005Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "15965c318cb2a1c384b27d03cd0e7f124bc3cd1a",
+        "fields": {
+            "user": 11,
+            "created": "2026-01-17T22:58:22.285Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "21a69c14cad1f0d5c32878b5b8fb67d516653495",
+        "fields": {
+            "user": 15,
+            "created": "2026-01-28T01:20:45.726Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "3074865e275691b3c2ece4eb0baea7b9ee0c5059",
+        "fields": {
+            "user": 12,
+            "created": "2026-01-17T21:29:27.671Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "8ace02c47ecb0225dec4ef96f537d6dfc077cef4",
+        "fields": {
+            "user": 1,
+            "created": "2026-01-17T17:29:14.543Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "ec8d57700a18472b0e0fb33cd9ab33f129203ac8",
+        "fields": {
+            "user": 14,
+            "created": "2026-01-19T17:26:50.455Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "edeeca58e5ae44ff7d8e17cb896381625d040c92",
+        "fields": {
+            "user": 16,
+            "created": "2026-01-27T02:16:31.695Z"
+        }
+    },
+    {
+        "model": "authtoken.token",
+        "pk": "f9aa158a99d0c27cc6fe80d4708f53775abd34f5",
+        "fields": {
+            "user": 17,
+            "created": "2026-02-13T21:07:40.293Z"
+        }
+    },
+    {
+        "model": "volcanes.volcano",
+        "pk": 1,
+        "fields": {
+            "name": "Monte St. Helens",
+            "location": "Estado de Washington, EE.UU.",
+            "height": 9677,
+            "unit": "ft",
+            "type": "estratovolcÃn",
+            "magma": "basalto, andesita y dacita",
+            "eruptions": "1857, 1980",
+            "comment": "No hay informaciÂ¾n al respecto."
+        }
+    },
+    {
+        "model": "volcanes.volcano",
+        "pk": 2,
+        "fields": {
+            "name": "Erebus",
+            "location": "Isla de Ross, AntÃrtida",
+            "height": 3794,
+            "unit": "m",
+            "type": "estratovolcÃn",
+            "magma": "basaita y traquita",
+            "eruptions": "Actividad constante.",
+            "comment": "No hay informaciÂ¾n al respecto."
+        }
+    },
+    {
+        "model": "volcanes.volcano",
+        "pk": 3,
+        "fields": {
+            "name": "Hekla",
+            "location": "Islandia",
+            "height": 1491,
+            "unit": "m",
+            "type": "estratovolcÃn",
+            "magma": "alcalino",
+            "eruptions": "1970, 1980, 1991",
+            "comment": "El tipo es intermedio entre los tipos de hileras de crÃteres y estratovolcanes."
+        }
+    },
+    {
+        "model": "volcanes.volcano",
+        "pk": 4,
+        "fields": {
+            "name": "Mauna Loa",
+            "location": "Hawaii",
+            "height": 13677,
+            "unit": "ft",
+            "type": "shield",
+            "magma": "protector",
+            "eruptions": "1984",
+            "comment": "No hay informaciÂ¾n al respecto."
+        }
+    },
+    {
+        "model": "volcanes.volcano",
+        "pk": 5,
+        "fields": {
+            "name": "Vesubio",
+            "location": "NÃpoles, Italia",
+            "height": 1277,
+            "unit": "m",
+            "type": "estratovolcÃn",
+            "magma": "andesita y dacita",
+            "eruptions": "79 d.C.",
+            "comment": "Este volcÃn no estÃ activo actualmente."
+        }
+    },
+    {
+        "model": "volcanes.volcano",
+        "pk": 6,
+        "fields": {
+            "name": "Monte Pissis",
+            "location": "Provincia de Catamarca, Argentina",
+            "height": 6795,
+            "unit": "m",
+            "type": "estratovolcÃn",
+            "magma": "andesita y dacita",
+            "eruptions": "Hace dos millones de aÂ±os (estimaciÂ¾n de Â·ltima actividad magmÃtica registrada).",
+            "comment": "Este volcÃn no estÃ activo actualmente.\r\nEl tipo de magma es intermedio a fÃlsico."
+        }
+    },
+    {
+        "model": "users.supportticket",
+        "pk": 4,
+        "fields": {
+            "username": "Lucas78",
+            "email": "lucas_tomy6@myspace.com",
+            "reason": "Deseo eliminar mi cuenta para siempre porque ya no estoy interesado en el tema, pero deseo que mis comentarios se conserven para que pueda ayudar a otros.",
+            "categoty": "request_deletion",
+            "related_comment_id": null,
+            "created_at": "2026-01-19T16:32:56.254Z",
+            "resolved": true
+        }
+    },
+    {
+        "model": "comments.comment",
+        "pk": 1,
+        "fields": {
+            "username": "esteb",
+            "message": "Hola, mi nombre es Esteban y soy el administrador de este sitio.\nEspero que este primer capÃtulo sobre volcanes les sea de su agrado. Espero que aprendan mucho y disfruten.\nLeo sus comentarios.\nÃ­Bienvenidos!",
+            "date": "2026-01-17T17:29:30.428Z",
+            "capitulo_nro": 1,
+            "parent": null,
+            "author": 1,
+            "is_deleted": false,
+            "alreadyReported": false,
+            "likes": [
+                1,
+                12,
+                16,
+                17
+            ],
+            "dislikes": [
+                13
+            ],
+            "red_flags": []
+        }
+    },
+    {
+        "model": "comments.comment",
+        "pk": 2,
+        "fields": {
+            "username": "Lucas78",
+            "message": "Hola Esteban, soy Lucas y me gusta este sitio.\nEspero aprender mucho sobre volcanes.\nÃ­Saludos!",
+            "date": "2026-01-17T21:58:19.712Z",
+            "capitulo_nro": 1,
+            "parent": 1,
+            "author": 12,
+            "is_deleted": false,
+            "alreadyReported": false,
+            "likes": [
+                1,
+                12,
+                13,
+                16
+            ],
+            "dislikes": [],
+            "red_flags": []
+        }
+    },
+    {
+        "model": "comments.comment",
+        "pk": 3,
+        "fields": {
+            "username": "esteb",
+            "message": "Gracias por tu comentario, Lucas.\nEn los prÂ¾ximos dÃas estarÃ actualizando la informaciÂ¾n de este primer capÃtulo.\nSaludos, Esteban.",
+            "date": "2026-01-17T22:09:50.038Z",
+            "capitulo_nro": 1,
+            "parent": 2,
+            "author": 1,
+            "is_deleted": false,
+            "alreadyReported": false,
+            "likes": [
+                1,
+                12,
+                13,
+                16
+            ],
+            "dislikes": [],
+            "red_flags": []
+        }
+    },
+    {
+        "model": "comments.comment",
+        "pk": 4,
+        "fields": {
+            "username": "Oswald34",
+            "message": "Ã­Muy interesante este tema!\n\nNo soy especialista en volcanes, pero me gustan desde que era chico.\nÃ­QuÃ bueno que existan sitios como este!\n\nÃ­Saludos a la comunidad!",
+            "date": "2026-01-17T23:03:33.259Z",
+            "capitulo_nro": 1,
+            "parent": null,
+            "author": 11,
+            "is_deleted": false,
+            "alreadyReported": false,
+            "likes": [
+                1,
+                12,
+                16,
+                17
+            ],
+            "dislikes": [
+                13
+            ],
+            "red_flags": []
+        }
+    },
+    {
+        "model": "comments.comment",
+        "pk": 7,
+        "fields": {
+            "username": "User1",
+            "message": "Me interesarÃa aportar algo desde mi perspectiva:\nCreo que el sitio se ve perfecto y que es muy hermoso. PodrÃa sin dudas mejorar en un futuro.",
+            "date": "2026-01-18T05:34:47.721Z",
+            "capitulo_nro": 1,
+            "parent": null,
+            "author": null,
+            "is_deleted": false,
+            "alreadyReported": false,
+            "likes": [
+                1
+            ],
+            "dislikes": [],
+            "red_flags": []
+        }
+    },
+    {
+        "model": "comments.comment",
+        "pk": 8,
+        "fields": {
+            "username": "Lucas78",
+            "message": "<script>\r\n/* \r\n  Mi cÂ¾digo malicioso aquÃ\r\n*/\r\n</script>",
+            "date": "2026-01-19T17:05:21.495Z",
+            "capitulo_nro": 1,
+            "parent": null,
+            "author": 12,
+            "is_deleted": false,
+            "alreadyReported": true,
+            "likes": [
+                13
+            ],
+            "dislikes": [
+                1,
+                11,
+                12,
+                15,
+                16,
+                17
+            ],
+            "red_flags": [
+                11,
+                13,
+                15,
+                16
+            ]
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 1,
+        "fields": {
+            "created_at": "2026-02-12T05:08:09.250Z",
+            "updated_at": "2026-02-18T19:40:33.504Z",
+            "participants": [
+                1,
+                16
+            ],
+            "is_active": [],
+            "hidden_for": [
+                16
+            ]
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 2,
+        "fields": {
+            "created_at": "2026-02-12T05:09:15.416Z",
+            "updated_at": "2026-02-18T19:40:33.563Z",
+            "participants": [
+                12,
+                16
+            ],
+            "is_active": [],
+            "hidden_for": [
+                12,
+                16
+            ]
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 3,
+        "fields": {
+            "created_at": "2026-02-12T23:31:56.196Z",
+            "updated_at": "2026-02-18T19:40:33.600Z",
+            "participants": [
+                1,
+                12
+            ],
+            "is_active": [],
+            "hidden_for": []
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 4,
+        "fields": {
+            "created_at": "2026-02-13T13:59:10.907Z",
+            "updated_at": "2026-02-18T19:40:33.649Z",
+            "participants": [
+                12,
+                13
+            ],
+            "is_active": [],
+            "hidden_for": [
+                12,
+                13
+            ]
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 5,
+        "fields": {
+            "created_at": "2026-02-13T14:11:53.199Z",
+            "updated_at": "2026-02-18T19:40:33.683Z",
+            "participants": [
+                11,
+                12
+            ],
+            "is_active": [],
+            "hidden_for": []
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 6,
+        "fields": {
+            "created_at": "2026-02-18T19:46:31.240Z",
+            "updated_at": "2026-02-18T19:46:31.273Z",
+            "participants": [
+                1,
+                11
+            ],
+            "is_active": [],
+            "hidden_for": []
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 7,
+        "fields": {
+            "created_at": "2026-02-18T19:52:10.612Z",
+            "updated_at": "2026-02-18T19:52:10.700Z",
+            "participants": [
+                1,
+                13
+            ],
+            "is_active": [],
+            "hidden_for": [
+                13
+            ]
+        }
+    },
+    {
+        "model": "direct_messages.conversation",
+        "pk": 8,
+        "fields": {
+            "created_at": "2026-02-18T21:59:03.380Z",
+            "updated_at": "2026-02-18T21:59:03.440Z",
+            "participants": [
+                13,
+                16
+            ],
+            "is_active": [],
+            "hidden_for": []
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 1,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "Hola, este es un mensaje de prueba",
+            "created_at": "2026-02-12T17:30:55.038Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 2,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "Hola, este es un mensaje de prueba",
+            "created_at": "2026-02-12T17:35:04.128Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 3,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "Hola, este es un mensaje de prueba",
+            "created_at": "2026-02-12T17:39:20.928Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 4,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "Hola, este es un mensaje de prueba",
+            "created_at": "2026-02-12T17:47:08.667Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 5,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "Hola.",
+            "created_at": "2026-02-12T22:07:53.898Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 6,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "Hola.",
+            "created_at": "2026-02-12T22:15:03.638Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 7,
+        "fields": {
+            "conversation": 2,
+            "sender": 16,
+            "text": "Hola, Lucas. Soy yo, Robert. âCÂ¾mo estÃs?",
+            "created_at": "2026-02-12T22:27:38.219Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 8,
+        "fields": {
+            "conversation": 2,
+            "sender": 16,
+            "text": "Espera, yo soy Robert.",
+            "created_at": "2026-02-12T22:34:24.056Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 9,
+        "fields": {
+            "conversation": 2,
+            "sender": 16,
+            "text": "âEstamos en el mismo lugar?",
+            "created_at": "2026-02-12T22:42:52.590Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 10,
+        "fields": {
+            "conversation": 2,
+            "sender": 16,
+            "text": "No lo creo...",
+            "created_at": "2026-02-12T22:50:51.850Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 11,
+        "fields": {
+            "conversation": 2,
+            "sender": 16,
+            "text": "Veamos quÃ tal este mensaje.",
+            "created_at": "2026-02-12T23:19:08.761Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 12,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "No parece estar funcionando...",
+            "created_at": "2026-02-12T23:21:28.629Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 13,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "No, no funciona.",
+            "created_at": "2026-02-12T23:28:17.854Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 14,
+        "fields": {
+            "conversation": 2,
+            "sender": 12,
+            "text": "Ni idea.",
+            "created_at": "2026-02-13T00:01:19.426Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 15,
+        "fields": {
+            "conversation": 3,
+            "sender": 12,
+            "text": "Hola, âCÂ¾mo estÃs?",
+            "created_at": "2026-02-13T01:46:15.837Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 16,
+        "fields": {
+            "conversation": 3,
+            "sender": 1,
+            "text": "Bien Lucas, a full con los volcanes.",
+            "created_at": "2026-02-13T01:47:10.346Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 17,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "SÃ, todo bien.",
+            "created_at": "2026-02-13T03:40:57.528Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 18,
+        "fields": {
+            "conversation": 1,
+            "sender": 1,
+            "text": "Excelente.",
+            "created_at": "2026-02-13T03:41:52.415Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 19,
+        "fields": {
+            "conversation": 5,
+            "sender": 12,
+            "text": "Hola Osvaldo, âCÂ¾mo estÃs?",
+            "created_at": "2026-02-13T16:01:43.128Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 20,
+        "fields": {
+            "conversation": 5,
+            "sender": 11,
+            "text": "Hola Lucas, todo bien.",
+            "created_at": "2026-02-13T16:22:33.764Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 21,
+        "fields": {
+            "conversation": 3,
+            "sender": 12,
+            "text": "Me alegro, me gusta mucho el sitio.",
+            "created_at": "2026-02-13T16:30:25.346Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 22,
+        "fields": {
+            "conversation": 1,
+            "sender": 16,
+            "text": "Perdone la molestia, admin.",
+            "created_at": "2026-02-13T16:46:31.405Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 23,
+        "fields": {
+            "conversation": 1,
+            "sender": 1,
+            "text": "Todo bien, Rob. No hay problema.",
+            "created_at": "2026-02-13T16:50:31.054Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 24,
+        "fields": {
+            "conversation": 1,
+            "sender": 1,
+            "text": "Ahora que funciona el chat, creo que es motivo de celebraciÂ¾n.",
+            "created_at": "2026-02-13T19:04:05.145Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 25,
+        "fields": {
+            "conversation": 3,
+            "sender": 1,
+            "text": "SÃ, estÃ quedando muy bien.",
+            "created_at": "2026-02-13T20:39:28.768Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 26,
+        "fields": {
+            "conversation": 5,
+            "sender": 12,
+            "text": "âTe gusta el sitio?",
+            "created_at": "2026-02-13T22:06:48.941Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 27,
+        "fields": {
+            "conversation": 5,
+            "sender": 11,
+            "text": "SÃ, me parece fantÃstico.",
+            "created_at": "2026-02-13T22:08:04.513Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.message",
+        "pk": 28,
+        "fields": {
+            "conversation": 8,
+            "sender": 16,
+            "text": "Hola, Arturo. âCÂ¾mo estÃs?",
+            "created_at": "2026-02-18T21:59:28.359Z",
+            "is_read": true
+        }
+    },
+    {
+        "model": "direct_messages.chatclear",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "conversation": 1,
+            "cleared_at": "2026-02-18T00:33:02.200Z"
+        }
+    },
+    {
+        "model": "direct_messages.chatclear",
+        "pk": 2,
+        "fields": {
+            "user": 16,
+            "conversation": 2,
+            "cleared_at": "2026-02-18T21:25:54.381Z"
+        }
+    },
+    {
+        "model": "direct_messages.chatclear",
+        "pk": 3,
+        "fields": {
+            "user": 12,
+            "conversation": 2,
+            "cleared_at": "2026-02-18T21:33:08.426Z"
+        }
+    },
+    {
+        "model": "direct_messages.chatclear",
+        "pk": 4,
+        "fields": {
+            "user": 12,
+            "conversation": 3,
+            "cleared_at": "2026-02-18T21:52:53.891Z"
+        }
+    },
+    {
+        "model": "direct_messages.chatclear",
+        "pk": 5,
+        "fields": {
+            "user": 16,
+            "conversation": 8,
+            "cleared_at": "2026-02-18T21:59:31.924Z"
+        }
+    }
+]

@@ -1,0 +1,22 @@
+<svg width='300' height='100' viewBox='0 0 300 100' xmlns='http://www.w3.org/2000/svg'>
+<style>
+  .brand { font: italic bold 24px sans-serif; fill: #2d3748; text-decoration: none; }
+  .line { stroke: #cbd5e0; stroke-width: 1.5; }
+</style>
+  <line x1='20' y1='30' x2='50' y2='20' class='line' />
+  <line x1='20' y1='30' x2='50' y2='50' class='line' />
+  <line x1='20' y1='30' x2='50' y2='80' class='line' />
+  <line x1='20' y1='70' x2='50' y2='20' class='line' />
+  <line x1='20' y1='70' x2='50' y2='50' class='line' />
+  <line x1='20' y1='70' x2='50' y2='80' class='line' />
+  <line x1='50' y1='20' x2='80' y2='50' class='line' />
+  <line x1='50' y1='50' x2='80' y2='50' class='line' />
+  <line x1='50' y1='80' x2='80' y2='50' class='line' />
+  <circle cx='20' cy='30' r='5' fill='#4a5568' />
+  <circle cx='20' cy='70' r='5' fill='#4a5568' />
+  <circle cx='50' cy='20' r='5' fill='#a0aec0' />
+  <circle cx='50' cy='50' r='5' fill='#a0aec0' />
+  <circle cx='50' cy='80' r='5' fill='#a0aec0' />
+  <circle cx='80' cy='50' r='5' fill='#48bb78' />
+  <text x='95' y='60' class='brand'>>PromptRep;</text>
+</svg>

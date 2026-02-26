@@ -1,0 +1,17 @@
+services:
+    db:
+       image: postgres:16
+       container_name: promptrep-db
+       environment:
+          POSTGRES_DB: ${POSTGRES_DB}
+          POSTGRES_USER: ${POSTGRES_USER}
+          POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+       ports:
+           - "5432:5432"
+       volumes:
+           - postgres_data:/var/lib/postgresql/postgres_data
+       restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local

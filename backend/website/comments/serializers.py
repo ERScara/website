@@ -10,6 +10,7 @@ class CommentSerializer(serializers.ModelSerializer):
         allow_null=True,
     )
     has_active_replies = serializers.ReadOnlyField()
+    is_superuser = serializers.SerializerMethodField()
     total_likes = serializers.ReadOnlyField()
     total_dislikes = serializers.ReadOnlyField()
     user_vote = serializers.SerializerMethodField()
@@ -24,6 +25,7 @@ class CommentSerializer(serializers.ModelSerializer):
                   'date', 
                   'parent', 
                   'is_deleted', 
+                  'is_superuser',
                   'has_active_replies', 
                   'total_likes', 
                   'total_dislikes', 
@@ -37,6 +39,11 @@ class CommentSerializer(serializers.ModelSerializer):
             return "Usuario Eliminado"
         return obj.author.username
     
+    def get_is_superuser(self, obj):
+        if obj.author and obj.author.is_active:
+            return obj.author.is_superuser
+        return False
+            
     def get_is_author_active(self, obj):
         return obj.author is not None or (obj.username and obj.username != "")
 

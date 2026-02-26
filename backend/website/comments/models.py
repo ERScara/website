@@ -20,6 +20,7 @@ class Comment(models.Model):
         blank= True,
     )
     is_deleted = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     likes = models.ManyToManyField(User, related_name='likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
     red_flags = models.ManyToManyField(User, related_name='red_flags', blank=True)
@@ -39,6 +40,7 @@ class Comment(models.Model):
         return self.dislikes.count()
     @staticmethod
     def check_spam(text):
+        """ Alerta sobre contenido de spam  """
         if not text:
             return False, ""
         words = text.split()
