@@ -5,12 +5,12 @@ import { About } from './pages/Inicio/about/about';
 import { Login } from './core/auth/login';
 import { Account } from './core/account/account';
 import { Support } from './core/support/support';
-import { AcercaDe } from './pages/capitulo1/capitulo1';
-import { Comunidades } from './pages/capitulo2/capitulo2'
-import { Modelos } from './pages/capitulo3/capitulo3';
-import { Avanzado } from './pages/capitulo4/capitulo4';
-import { Diseño } from './pages/capitulo5/capitulo5';
-import { SalaComun } from './pages/capitulo6/capitulo6';
+import { AcercaDe } from './pages/capitulo1/acerca-de';
+import { Comunidades } from './pages/comunidades/comunidades'
+import { Modelos } from './pages/modelos/modelos';
+import { Avanzado } from './pages/avanzado/avanzado';
+import { Diseño } from './pages/capitulo5/diseño';
+import { SalaComun } from './pages/sala-comun/sala-comun';
 
 export const appRoutes: Routes = [{ path: 'Inicio', component: Inicio, pathMatch:'full'}, 
                                   { path: 'login', component: Login, pathMatch:'full'}, 
@@ -23,6 +23,6 @@ export const appRoutes: Routes = [{ path: 'Inicio', component: Inicio, pathMatch
                                   { path:'comunidades', component: Comunidades, pathMatch:'full'},
                                   { path:'modelos', component: Modelos, pathMatch:'full'},
                                   { path:'avanzado', component: Avanzado, pathMatch:'full'},
-                                  { path:'diseño', component: Diseño, pathMatch:'full'},
+                                  { path:'diseno', component: Diseño, pathMatch:'full'},
                                   { path:'sala-comun', component: SalaComun, pathMatch:'full'},
                                   {path:'', redirectTo:'Inicio', pathMatch:'full'}];
