@@ -4,6 +4,7 @@ export interface Comments {
     message: string;
     total_likes: number;
     total_dislikes?: number;
+    is_superuser?: boolean;
     date: string;
     parent: number | null;
     disableBtn1?: boolean;

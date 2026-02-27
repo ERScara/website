@@ -1,99 +1,58 @@
-<h1 id="chapter">~ 1 ~</h1>
-<h1 id="header">Volcanes</h1>
+<h1 id="chapter">PromptRep</h1>
+<h1 id="header">Un repositorio de prompts, <i>reimaginado</i>.</h1>
 
-<h2>&#10064; <u>Capítulo Nº1</u>: Volcanes del mundo.</h2>
-<p>En este capítulo veremos los distintos tipos de volcanes e información acerca de ellos. También estudiaremos su altura, su tipo, su composición geológica y su tipo de magma.
-En la siguiente tabla, se muestran la altura (en metros o pies) y los tipos de volcanes de tres volcanes presentes en distintas partes del mundo.</p>
-<p>El volcán de Mauna Loa, en la isla de Hawaii, es un volcan semi-activo perteneciente a la clase protector.
-Los volcanes Erebus y Hekla de la Antártida e Islandia, respectivamente, son estratovolcanes activos todo el año y su control se realiza anualmente por equipos de investigadores expertos en geología de la Universidad de Uppsala.
-Los volcanes pueden estar activos o inactivos, esto puede verse en los registros de la última erupción.</p>
-<p>En internet pueden descargarse recursos, videos e información extra acerca de los volcanes, o pueden comprar nuestro CD interactivo con enciclopedia incorporada.</p>
-<h2 id="chars"><b>Características</b></h2>
+<h2>&#10064; <u>Novedades</u>:</h2>
+<p>Un camino largo por recorrer es el que me espera para que este sitio salga a la luz. Este sitio, más que un sueño, es una promesa que su creador hace a la comunidad de programadores, a expertos en IA e ingeniría de prompts.</p>
+<p>La diferencia entre este y otros repositorios es la posibilidad de comunidad activa, de creación de contenido dentro de portales y entornos propios que permita, tanto al creador como al usuario común, mostrar, revisar y comparti prompts.</p>
+<p>El sitio está organizado en categorías, que aparecen en el menú principal, encima de la barra de búsqueda.</p>
+<h2 id="chars"><b>Estructura del sitio</b></h2>
 <br />
 <table width="75%">
     <tr>
         <th>Nombre</th>
-        <th>Ubicación</th>
-        <th>Alto</th>
-        <th>Tipo</th>
-        <th>Erupción</th>
-        <th>Magma</th>
+        <th>Misión</th>
+        <th>Descripción</th>
     </tr>
     <tr>
-        <td>Monte St. Helens</td>
-        <td>Estado de Washington, EE.UU.</td>
-        <td>9677 ft</td>
-        <td>estratovolcán</td>
-        <td>1857, 1980</td>
-        <td>basalto, andesita y dacita</td>
+        <td>Comunidades</td>
+        <td>Aquí se agrupan e integran las comunidades generales.</td>
+        <td>Puede haber comunidades diversas generadas por los propios usuarios.</td>
     </tr>
     <tr>
-        <td>Erebus</td>
-        <td>Isla Ross, Antártida.</td>
-        <td>3794 m</td>
-        <td>estratovolcán</td>
-        <td>actividad constante</td>
-        <td>basaita y traquita</td>
+        <td>Modelos</td>
+        <td>Agrupa comunidades específicas relacionadas con instrucciones específicas para ciertos modelos.</td>
+        <td>Los usuarrios pueden probar, compartir y comentar prompts de la comunidad orientado a modelos de IA específicos.</td>
     </tr>
     <tr>
-        <td>Hekla</td>
-        <td>Islandia</td>
-        <td>1491 m</td>
-        <td>estratovolcán</td>
-        <td>1970, 1980, 1991</td>
-        <td>alcalino</td>
+        <td>Avanzado</td>
+        <td>Agrupa los prompts avanzados o proyectos grandes.</td>
+        <td>Todas las comunidades de proyectos grandes y prompts complejos pueden ir en esta categoría.</td>
     </tr>
     <tr>
-        <td>Mauna Loa</td>
-        <td>Hawaii</td>
-        <td>13677 ft</td>
-        <td>shield</td>
-        <td>1984</td>
-        <td>protector</td>
+        <td>Diseño</td>
+        <td>Agrupa prompts orientados al diseño, a la generación de audio, video o imágenes.</td>
+        <td>La comunidades de esta catgoría podrán compartir su creación artística y recibir valoraciones no solo por la calidad del prompt, sino también por su calidad artística.</td>
     </tr>
     <tr>
-        <td>Vesubio</td>
-        <td>Napoles, Italia.</td>
-        <td>1277 m</td>
-        <td>estratovolcan</td>
-        <td>79 d.C.</td>
-        <td>andesita y dacita</td>
-    </tr>
-    <tr>
-        <td>Monte Pissis</td>
-        <td>Provincia de Catamarca, Argentina.</td>
-        <td>6795 m</td>
-        <td>estratovolcan</td>
-        <td>Hace 2 millones de años</td>
-        <td>andesita y dacita</td>
+        <td>Sala Común</td>
+        <td>Agrupa comunidades off-topic, curiosidades, temas de porgramación, entrenamientos de modelos y comunidades de consultas.</td>
+        <td>Las comunidades no solo podrán compartir sus intereses en esta categoría, sino que podrán abrir tópicos de consulta, hablar sobre curiosidades y mostrar du destreza en programación.</td>
     </tr>
 </table>
-<br />
-<br />
-<p>También puede presionar el botón "Mostrar datos" para obtener más información.</p>
-<br />
-<div class="flex-center">
-    <button (click)="toggleVolcanoes()">{{isVisible ? 'Ocultar Datos' : 'Mostrar Datos'}}</button>
-</div>
-<div id="Output">
-    @if (isVisible) {
-        @for (Volcano of vulcan; track Volcano.name) {
-            <h3>{{Volcano.name}}</h3>
-            <p><strong><u>Ubicación</u>: </strong> {{Volcano.location}}</p>
-            <p><strong><u>Altura</u>: </strong> {{Volcano.height}} {{Volcano.unit}}</p>
-            <p><strong><u>Tipo</u>: </strong> {{Volcano.type}}</p>
-            <p><strong><u>Magma</u>: </strong> {{Volcano.magma}}</p>
-            <p><strong><u>Erupciones</u>: </strong> {{Volcano.eruptions}}</p>
-            <p><strong><u>Comentario</u>: </strong> {{Volcano.comment}}</p>
-            <hr style="border: none; height: 3px; background-color: #333; width: 100%;">
-        }
-    }
-</div>
+
 <br />
 <div>
     <h3><b>Comentarios</b></h3>
     <div class="flex-center">
     <button (click)="toggleComments()" class="form-button">{{ showComments ? 'Ocultar Comentarios' : 'Mostrar Comentarios' }} ({{ totalComments }})</button>
+</div>
+<div class="selection-box">
+    <select class="select-combo" [(ngModel)]="sortOrder" (change)="onSortChange()">
+        <option value="best">Mejor calificados</option>
+        <option value="worst">Peor calificados</option>
+        <option value="newest">Más recientes</option>
+        <option value="oldest">Más antiguos</option>
+    </select>
 </div>
 <div>
     @if (showComments) {
@@ -104,10 +63,14 @@ Los volcanes pueden estar activos o inactivos, esto puede verse en los registros
                 <div class="main-comments">    
                     <div>
                         @if (parent.username) {
-                            <small id="small"><strong>Usuario: {{parent.username}}</strong></small>
+                            <small id="small"><strong>Usuario: {{parent.username}}</strong>
+                                @if (parent.is_superuser) {
+                                    <small id="Admin" title="Administrador">Admin</small>
+                                }
+                            </small>
                         } @else {
                             <small id="small"><strong>[Usuario Eliminado]</strong></small>
-                        }
+                        } 
                         <small id="small"><span>Fecha de publicación: {{parent.date | date:'dd/MM/yyyy HH:mm'}}</span></small>
                     </div>
                     <span><strong>Dijo:</strong></span>
@@ -179,7 +142,11 @@ Los volcanes pueden estar activos o inactivos, esto puede verse en los registros
                         <div [class.reply]="child.parent" class="comment-card" [style.margin-left.px]="child.parent !== parent.id ? 20 : 0">
                             <div>
                         @if (child.username) {
-                            <small id="small"><strong>Usuario: {{child.username}}</strong></small>
+                            <small id="small"><strong>Usuario: {{child.username}}</strong>
+                                @if (child.is_superuser) {
+                                    <small id="Admin" title="Administrador">Admin</small>
+                                }
+                            </small>
                         } @else {
                             <small id="small"><strong>[Usuario Eliminado]</strong></small>
                         }

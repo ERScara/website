@@ -1,26 +1,25 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Comments } from '../../models/comments.model';
-import { Volcano } from '../../models/volcano.model'; 
-import { VolcanoService } from '../../service/volcano.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../service/auth.service';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   selector: 'app-capitulo1',
   templateUrl: './capitulo1.html',
   styleUrl: './capitulo1.scss',
 })
-export class Capitulo1 implements OnInit {
+export class AcercaDe implements OnInit {
   protected title = 'website';
   private fb = inject(FormBuilder);
   public authService = inject(AuthService);
   private http = inject(HttpClient);
   private cdr = inject(ChangeDetectorRef);
+  sortOrder: string = 'best';
 
   public messageForm!: FormGroup;
   public isSending = false;
@@ -32,7 +31,6 @@ export class Capitulo1 implements OnInit {
   totalComments = 0;
   isVisible = false;
   showComments = false;
-  public vulcan: Volcano[] = [];
 
   setReply(comment: Comments) {
     this.replyingTo = comment;
@@ -48,20 +46,16 @@ export class Capitulo1 implements OnInit {
     }
     return false;
   }
-
   getReplyToName(parentId: number): string {
     const parent = this.listComments.find(c => c.id === parentId);
     return parent ? parent.username : '';
   }
-
-  private readonly volcanoService = inject(VolcanoService);
 
   get f() { return this.messageForm.controls; }
   
   ngOnInit(): void {
     this.initForm();
     this.getComments();
-    this.loadVolcanoes();
   }
 
   private initForm(): void {
@@ -71,14 +65,6 @@ export class Capitulo1 implements OnInit {
       message: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(3000)]],
       date: [new Date().toISOString()],
     });
-  }
-  loadVolcanoes(): void {
-    this.volcanoService.getVolcanes().subscribe({
-      next: (data: Volcano[]) => {
-        this.vulcan = data;
-        console.log("Volcanes cargados correctamente: ", this.vulcan);
-      }, error: (err) => console.log("Error de conexión con Django: ", err)
-    })
   }
   getComments(){
     this.http.get('http://localhost:8000/api/comments/?capitulo=1').subscribe({
@@ -94,12 +80,7 @@ export class Capitulo1 implements OnInit {
       error: (err) => console.warn("error cargando comentarios: ", err)
     })
   }
-  toggleVolcanoes() {
-     this.isVisible = !this.isVisible;
-     if (this.isVisible && this.vulcan.length === 0) {
-      this.loadVolcanoes();
-     }
-  }
+
   toggleComments() {
      this.showComments = !this.showComments;
      if (this.showComments && this.listComments.length === 0) {
@@ -203,6 +184,19 @@ export class Capitulo1 implements OnInit {
         console.log("Error al calificar: ", err)
       } 
     })
+  }
+  onSortChange() {
+    if (this.sortOrder === 'best') {
+      this.listComments.sort((a, b) => b.total_likes - a.total_likes);
+    } else if (this.sortOrder == 'worst') {
+      this.listComments.sort((a, b) => a.total_likes - b.total_likes);
+    } else if (this.sortOrder == 'newest') {
+      this.listComments.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    } else if (this.sortOrder == 'oldest') {
+      this.listComments.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    } else {
+      this.listComments.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    }
   }
   onReport(comment: Comments) {
     const currentUser = localStorage.getItem('username')

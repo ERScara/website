@@ -5,10 +5,19 @@
                <img src="assets/img/promptreplogo.svg" alt="PromptRep Logo" class="brand-logo" >
             </a>
         </li>
-        @for(num of [1, 2, 3, 4, 5, 6]; track num) {
-        <li><a [routerLink]="'/Capítulo_' + num" routerLinkActive="active">Capítulo N°{{ num }}</a></li>
-        }
+        <li><a routerLink="/acerca-de" routerLinkActive="active">Acerca de</a></li>
+        <li><a routerLink="/comunidades" routerLinkActive="active">Comunidades</a></li>
+        <li><a routerLink="/modelos" routerLinkActive="active">Modelos</a></li>
+        <li><a routerLink="/avanzado" routerLinkActive="active">Avanzado</a></li>
+        <li><a routerLink="/diseño" routerLinkActive="active">Diseño</a></li>
+        <li><a routerLink="/sala-comun" routerLinkActive="active">Sala Común</a></li>
     </ul>
+</nav>
+<nav>
+    <div class="search">
+       <input type="search" class="global-search" placeholder="Realiza una búsqueda...">
+       <small id="advanced">Consejos de búqueda avanzada</small>
+    </div>
 </nav>
 <nav>
     <div>

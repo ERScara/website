@@ -12,6 +12,15 @@
     height: auto;
     background-size: contain;
     background-repeat:no-repeat;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 4px lightgray);
+    } to {
+        filter: drop-shadow(0 0 16px slategray) drop-shadow(0 0 32px lightgray);
+    }
 }
 
 .menu ul {
@@ -371,4 +380,29 @@ button {
     background-color: coral;
     cursor: pointer;
     }
+}
+
+.global-search {
+    width: 800px;
+    height: auto;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    color: black;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.3);
+}
+
+#advanced {
+    font-style: italic;
+    font-variant: normal;
+    color: #fa593c;
+    margin-left: auto;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-self: center;
 }

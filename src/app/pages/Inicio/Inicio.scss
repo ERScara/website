@@ -14,7 +14,7 @@
     border-right: solid 5px orange;
     p {
         color: black;
-        font-size: 13px;
+        font-size: 15px;
         text-align: justify;
         font-weight: 600;
         justify-content: flex-start;
@@ -26,9 +26,20 @@
 h2 {
     color: black;
     font-size: 23px;
+    padding: 19px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     text-align: center;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+    color: lime;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .prompt {
@@ -38,6 +49,7 @@ h2 {
     max-width: fit-content;
     justify-self:center;
     color: lime;
+    padding: 40px;
 }
 
 h1 {
@@ -56,7 +68,7 @@ p {
 button {
     box-shadow: 0 10px 20px rgba(0,0,0, 0.2);
     margin-left: 290px;
-    margin-top: 0cap;
+    margin-top: 50px;
     height: 40px;
     border: 2px solid;
     border-color: black;

@@ -18,5 +18,5 @@
   <circle cx='50' cy='50' r='5' fill='#a0aec0' />
   <circle cx='50' cy='80' r='5' fill='#a0aec0' />
   <circle cx='80' cy='50' r='5' fill='#48bb78' />
-  <text x='95' y='60' class='brand'>>PromptRep;</text>
+  <text x='95' y='60' class='brand'>PromptRep</text>
 </svg>
