@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django_extensions',
     'django.contrib.contenttypes',
+    'django.contrib.postgres',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
