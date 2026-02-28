@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from posts.models import Post
 
 class Comment(models.Model):
     username = models.CharField(max_length=40)
@@ -18,6 +19,13 @@ class Comment(models.Model):
         on_delete=models.SET_NULL,
         null= True,
         blank= True,
+    )
+    post = models.ForeignKey(
+        'posts.Post',
+        on_delete=models.CASCADE,
+        related_name='comments',
+        null=True,
+        blank=True
     )
     is_deleted = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'channels',
     'communities',
+    'posts',
     'users',
     'comments',
     'direct_messages'

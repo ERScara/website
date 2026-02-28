@@ -13,5 +13,6 @@ urlpatterns = [
     path('api/comments/', include('comments.urls')),
     path('api/', include('direct_messages.urls')),
     path('api/', include('communities.urls')),
+    path('api/', include('posts.urls')),
     path('api/schema', SpectacularAPIView.as_view(), name='schema')
 ]
