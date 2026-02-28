@@ -119,6 +119,3 @@ class CommentsViewSet(viewsets.ModelViewSet):
         user = request.user
         exists = comment.red_flags.filter(id=user.id).exists()
         return Response({"has_reported": exists})
-
-
- 
