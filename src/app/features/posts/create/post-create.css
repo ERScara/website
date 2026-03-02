@@ -1,0 +1,28 @@
+.post-create {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+}
+
+button {
+  width: fit-content;
+  padding: 8px 14px;
+}
+
+.error {
+  color: #b42318;
+}

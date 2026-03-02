@@ -1,1 +1,36 @@
-<p>community-list works!</p>
+ <h1 id="chapter">Inicie su propia comunidad</h1>
+<h1 id="header">Busque su categoría</h1>
+<div class="communities-container">
+    <div class="communities-header">
+        <h2>Comunidades</h2>
+        <a routerLink="/comunidades/crear" class="create"> + Nueva Comunidad</a>
+    </div>
+    @if (isLoading) {
+        <p>Cargando comunidades...</p>
+    } @else if (error) {
+        <p class="error">{{ error }}</p>
+    } @else if (communities.length === 0) {
+        <p>No hay comunidades disponibles todavía.</p>
+    } @else {
+        @for (community of communities; track community.id) {
+            <div class="community-info">
+               <a [routerLink]="['/comunidades', community.id]">
+                  <h3>{{ community.name }}</h3>
+               </a>
+               <p>{{ community.name }}</p>
+               <small>
+                  Categoría: {{ community.category }} |
+                  Miembros: {{ community.total_members }} |
+                  Creada por: {{ community.creator_username }}
+               </small>
+            </div>
+            <div class="community-actions">
+                @if (community.is_member) {
+                    <button (click)="leave(community)" class="btn-leave">Abandonar</button>
+                } @else {
+                    <button (click)="join(community)" class="btn-join">Unirse</button>
+                }
+            </div>
+        }
+    }
+</div>

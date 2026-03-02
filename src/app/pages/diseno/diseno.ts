@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-capitulo5',
   imports: [],
-  templateUrl: './capitulo5.html',
-  styleUrl: './capitulo5.scss',
+  templateUrl: './diseno.html',
+  styleUrl: './diseno.scss',
 })
-export class Diseño {}
+export class Diseno {}

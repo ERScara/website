@@ -2,7 +2,7 @@ export interface Community {
     id: number;
     name: string;
     description: string;
-    category: 'advanced' | 'design' | 'common' | 'models';
+    category: 'advanced' | 'design' | 'common' | 'modelos';
     total_members: number;
     creator_username: string;
     owner: number;

@@ -2,6 +2,7 @@ from rest_framework import viewsets, permissions, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.utils import timezone
+from django.db.models import Q
 from .models import Community, Membership
 from .serializers import CommunitySerializer, MembershipSerializer
 
@@ -11,9 +12,30 @@ class CommunityViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        base_queryset = Community.objects.all()
+
         if user.is_authenticated and user.is_superuser:
-            return Community.objects.all()
-        return Community.objects.filter(status='approved')
+            return base_queryset
+        if user.is_authenticated:
+            return base_queryset.filter(Q(status='approved') | Q(owner=user)).distinct()
+        return base_queryset.filter(status='approved')
+
+    def retrieve(self, request, *args, **kwargs):
+        community = Community.objects.filter(pk=kwargs.get('pk')).first()
+        if not community:
+            return Response({'detail': 'Comunidad no encontrada.'}, status=status.HTTP_404_NOT_FOUND)
+
+        user = request.user
+        can_view = (
+            user.is_superuser
+            or community.status == 'approved'
+            or community.owner_id == user.id
+        )
+        if not can_view:
+            return Response({'detail': 'No tienes permiso para ver esta comunidad.'}, status=status.HTTP_403_FORBIDDEN)
+
+        serializer = self.get_serializer(community)
+        return Response(serializer.data)
 
     def perform_create(self, serializer):
         community=serializer.save(owner=self.request.user, status='pending')

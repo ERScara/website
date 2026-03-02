@@ -52,9 +52,16 @@ class CommentsViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         cap_id = self.request.query_params.get('capitulo')
+        post_id = self.request.query_params.get('post')
         queryset = Comment.objects.all().prefetch_related('replies')
-        if cap_id:
-            queryset = queryset.filter(capitulo_nro=cap_id)
+
+        if post_id:
+            queryset = queryset.filter(post_id=post_id)
+        elif cap_id:
+            queryset = queryset.filter(capitulo_nro=cap_id, post__isnull=True)
+        else:
+            queryset = queryset.filter(post__isnull=True)
+
         return queryset.order_by('-date')
     
     def get_serializer_class(self, *args, **kwargs):

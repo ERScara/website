@@ -6,10 +6,9 @@ import { Login } from './core/auth/login';
 import { Account } from './core/account/account';
 import { Support } from './core/support/support';
 import { AcercaDe } from './pages/acerca-de/acerca-de';
-import { Comunidades } from './pages/comunidades/comunidades'
 import { Modelos } from './pages/modelos/modelos';
 import { Avanzado } from './pages/avanzado/avanzado';
-import { Diseño } from './pages/deseño/diseño';
+import { Diseno } from './pages/diseno/diseno';
 import { SalaComun } from './pages/sala-comun/sala-comun';
 import { CommunityList } from './features/communities/list/community-list';
 import { CommunityDetail } from './features/communities/detail/community-detail';
@@ -26,13 +25,13 @@ export const appRoutes: Routes = [{ path: 'Inicio', component: Inicio, pathMatch
                                   { path: 'about', component: About, pathMatch:'full'},
                                   { path:'acerca-de', component: AcercaDe, pathMatch:'full'},
                                   { path:'comunidades', component: CommunityList, pathMatch:'full'},
-                                  { path:'comunidades/:id', component: CommunityDetail, pathMatch:'full'},
                                   { path:'comunidades/crear', component: CommunityCreate, pathMatch:'full'},
+                                  { path:'comunidades/:id/posts', redirectTo:'comunidades/:id', pathMatch:'full'},
+                                  { path:'comunidades/:id', component: CommunityDetail, pathMatch:'full'},
                                   { path:'comunidades/:communityId/posts/crear', component: PostCreate, pathMatch:'full'},
                                   { path:'comunidades/:communityId/posts/:postId', component: PostDetail, pathMatch:'full'},
-                                  { path:'comunidades', component: Comunidades, pathMatch:'full'},
                                   { path:'modelos', component: Modelos, pathMatch:'full'},
                                   { path:'avanzado', component: Avanzado, pathMatch:'full'},
-                                  { path:'diseno', component: Diseño, pathMatch:'full'},
+                                  { path:'diseno', component: Diseno, pathMatch:'full'},
                                   { path:'sala-comun', component: SalaComun, pathMatch:'full'},
                                   {path:'', redirectTo:'Inicio', pathMatch:'full'}];

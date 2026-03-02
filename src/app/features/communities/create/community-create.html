@@ -1,1 +1,33 @@
-<p>community-create works!</p>
+<section class="community-create">
+  <a routerLink="/comunidades">← Volver a comunidades</a>
+  <h1>Crear comunidad</h1>
+
+  @if (error) {
+    <p class="error">{{ error }}</p>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label for="name">Nombre</label>
+    <input id="name" type="text" formControlName="name" placeholder="Nombre de la comunidad" />
+    @if (form.controls.name.touched && form.controls.name.invalid) {
+      <small class="error">El nombre es obligatorio (3-100 caracteres).</small>
+    }
+
+    <label for="description">Descripcion</label>
+    <textarea id="description" rows="5" formControlName="description" placeholder="De que trata esta comunidad"></textarea>
+    @if (form.controls.description.touched && form.controls.description.invalid) {
+      <small class="error">La descripcion es obligatoria (min 10 caracteres).</small>
+    }
+
+    <label for="category">Categoria</label>
+    <select id="category" formControlName="category">
+      @for (category of categories; track category.value) {
+        <option [value]="category.value">{{ category.label }}</option>
+      }
+    </select>
+
+    <button type="submit" [disabled]="isSaving">
+      {{ isSaving ? 'Creando...' : 'Crear comunidad' }}
+    </button>
+  </form>
+</section>

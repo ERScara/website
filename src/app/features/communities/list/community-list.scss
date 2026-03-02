@@ -1,0 +1,111 @@
+.communities-container {
+    max-width: 900px;
+    margin: 0 auto;
+    paddding: 24px;
+    color: #48bb78;
+    font-family: monospace;
+}
+
+.communities-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #48bb78;
+    padding-bottom: 12px;
+    h2 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+}
+
+.btn-crate {
+    color: #48bb78;
+    border: 1px solid #48bb78;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-family:monospace;
+    transition: all 0.2s ease;
+
+    &:hove {
+        background-color: #48bb78;
+        color: #000;
+    }
+}
+
+.community-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid #2d3748;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease;
+    
+    &:hover {
+        border-color: #48bb78;
+    }
+
+    .community-info {
+        flex: 1;
+        a {
+            text-decoration: none;
+            color: #48bb78;
+            h3 {
+                margin: 0 0 8px 0;
+
+                font-size: 1.1rem;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        p {
+            margin: 0 0 8px 0;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+        small {
+            color: #718096;
+            font-size: 0.8rem;
+        }
+    }
+    .community-actions {
+        margin-left: 16px;
+    }
+}
+
+.btn-join {
+    background: transparent;
+    border: 1px solid #48bb78;
+    color: #48bb78;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-family: monospace;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: #48bb78;
+        color: #000;
+    }
+}
+
+.btn-leave {
+    background: transparent;
+    border: 1px solid #fc8181;
+    color: #fc8181;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-family: monospace;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: #fc8181;
+        color: #000;
+    }
+}
+
+.error {
+    color: #fc8181;
+}

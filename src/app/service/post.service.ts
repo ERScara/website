@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../models/posts.model'
+import { Comments } from '../models/comments.model';
 
 @Injectable({
     providedIn: 'root'
@@ -16,6 +17,9 @@ export class PostService {
     getPosts(): Observable<Post[]> {
         return this.http.get<Post[]>(`${this.apiURL}/`, { headers: this.getHeaders() });
     }
+    getPostsByCommunity(communityId: number): Observable<Post[]> {
+        return this.http.get<Post[]>(`${this.apiURL}/?community=${communityId}`, { headers: this.getHeaders() });
+    }
     getPost(id: number): Observable<Post> {
         return this.http.get<Post>(`${this.apiURL}/${id}/`, {headers: this.getHeaders()});
     }
@@ -28,8 +32,12 @@ export class PostService {
     dislikePost(id: number): Observable<any> {
         return this.http.post(`${this.apiURL}/${id}/dislike/`, {}, {headers: this.getHeaders()});
     }
-    getComments(id: number): Observable<any> {
-        return this.http.get<any[]>(`${this.apiURL}/${id}/comments/`, { headers: this.getHeaders() })
+    getComments(id: number): Observable<Comments[]> {
+        return this.http.get<Comments[]>(`${this.apiURL}/${id}/comments/`, { headers: this.getHeaders() })
+    }
+    createComment(postId: number, message: string, parent: number | null = null): Observable<Comments> {
+        const payload = { message, post: postId, parent };
+        return this.http.post<Comments>('http://localhost:8000/api/comments/', payload, { headers: this.getHeaders() });
     }
     reportPost(id: number): Observable<any> {
         return this.http.post(`${this.apiURL}/${id}/report`, {}, {headers: this.getHeaders()});

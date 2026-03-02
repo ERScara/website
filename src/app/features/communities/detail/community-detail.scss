@@ -1,0 +1,32 @@
+.community-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.community-head {
+  margin-bottom: 18px;
+}
+
+.actions {
+  margin: 12px 0 20px;
+}
+
+.post-list {
+  display: grid;
+  gap: 12px;
+}
+
+.post-card {
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.post-card h3 {
+  margin: 0 0 8px;
+}
+
+.error {
+  color: #b42318;
+}

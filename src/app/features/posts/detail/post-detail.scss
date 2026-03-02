@@ -1,0 +1,31 @@
+.post-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.comment-form {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+.comment-list {
+  display: grid;
+  gap: 10px;
+}
+
+.comment-item {
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.error {
+  color: #b42318;
+}

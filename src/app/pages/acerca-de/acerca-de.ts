@@ -10,8 +10,8 @@ import { AuthService } from '../../service/auth.service';
   standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   selector: 'app-capitulo1',
-  templateUrl: './capitulo1.html',
-  styleUrl: './capitulo1.scss',
+  templateUrl: './acerca-de.html',
+  styleUrl: './acerca-de.scss',
 })
 export class AcercaDe implements OnInit {
   protected title = 'website';

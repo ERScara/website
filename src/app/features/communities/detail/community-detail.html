@@ -1,1 +1,43 @@
-<p>community-detail works!</p>
+<section class="community-detail">
+  @if (isLoading) {
+    <p>Cargando comunidad...</p>
+  } @else if (error) {
+    <p class="error">{{ error }}</p>
+  } @else if (community) {
+    <header class="community-head">
+      <h1>{{ community.name }}</h1>
+      <p>{{ community.description }}</p>
+      <small>
+        Categoria: {{ community.category }} |
+        Miembros: {{ community.total_members }} |
+        Creada por: {{ community.creator_username }}
+      </small>
+    </header>
+
+    <div class="actions">
+      <a [routerLink]="['/comunidades', community.id, 'posts', 'crear']">+ Nuevo Post</a>
+    </div>
+
+    <h2>Posts</h2>
+    @if (posts.length === 0) {
+      <p>No hay posts todavia en esta comunidad.</p>
+    } @else {
+      <div class="post-list">
+        @for (post of posts; track post.id) {
+          <article class="post-card">
+            <a [routerLink]="['/comunidades', community.id, 'posts', post.id]">
+              <h3>{{ post.title }}</h3>
+            </a>
+            <p>{{ post.content }}</p>
+            <small>
+              Autor: {{ post.author_username }} |
+              Comentarios: {{ post.comment_count }} |
+              Likes: {{ post.total_likes }} |
+              Dislikes: {{ post.total_dislikes }}
+            </small>
+          </article>
+        }
+      </div>
+    }
+  }
+</section>

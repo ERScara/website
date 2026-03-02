@@ -12,7 +12,11 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes= [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Post.objects.filter(is_deleted=False).order_by('-created_at')
+        queryset = Post.objects.filter(is_deleted=False)
+        community_id = self.request.query_params.get('community')
+        if community_id:
+            queryset = queryset.filter(community_id=community_id)
+        return queryset.order_by('-created_at')
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

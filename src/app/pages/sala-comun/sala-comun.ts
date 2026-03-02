@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-capitulo6',
   imports: [],
-  templateUrl: './capitulo6.html',
-  styleUrl: './capitulo6.scss',
+  templateUrl: './sala-comun.html',
+  styleUrl: './sala-comun.scss',
 })
 export class SalaComun {}
