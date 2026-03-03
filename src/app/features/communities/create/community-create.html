@@ -1,4 +1,4 @@
- <a routerLink="/comunidades">← Volver a comunidades</a>
+<a routerLink="/comunidades">← Volver a comunidades</a>
 <section class="community-create">
  
   <h1>| Crear comunidad |</h1>
@@ -11,13 +11,13 @@
     <label for="name">Nombre</label>
     <input id="name" type="text" formControlName="name" placeholder="Nombre de la comunidad" />
     @if (form.controls.name.touched && form.controls.name.invalid) {
-      <small class="error">El nombre es obligatorio (3-100 caracteres).</small>
+      <em><small class="error">El nombre es obligatorio (3-100 caracteres).</small></em>
     }
 
     <label for="description">Descripcion</label>
     <textarea id="description" rows="5" formControlName="description" placeholder="¿De que trata esta comunidad?"></textarea>
     @if (form.controls.description.touched && form.controls.description.invalid) {
-      <small class="error">La descripcion es obligatoria (min 10 caracteres).</small>
+      <em><small class="error">La descripcion es obligatoria (min 10 caracteres).</small></em>
     }
 
     <label for="category">Categoria</label>

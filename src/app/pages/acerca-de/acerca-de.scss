@@ -124,7 +124,6 @@ table {
     border-radius: 6px solid;
     table-layout: fixed;
     text-align: center;
-    border-radius: 6px dashed;
     border: 2px;
     margin: auto;
     td {
@@ -132,12 +131,14 @@ table {
         font-weight: 400;
         padding: 15px;
         color: black;
+        border-radius:5px;
         border-color: aliceblue;
         background-color: rgb(132, 165, 204);
     }
     th {
         background-color: burlywood;
         padding: 15px;
+        border-radius:5px 5px 0 0;
         color: black;
         font-size: 30px;
         font-weight: 600;

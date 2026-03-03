@@ -24,7 +24,7 @@ export class Support implements OnInit {
       const currentUser = this.authService.currentUser();
       this.supportForm = this.fb.group({
         username: [{ value: currentUser?.username || '', disabled: true}, Validators.required],
-        email: [currentUser?.email || '', [Validators.required, Validators.email]],
+        email: [{value:currentUser?.email || '', disabled: true}, [Validators.required, Validators.email]],
         reason: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(3000)]]
       });
     }

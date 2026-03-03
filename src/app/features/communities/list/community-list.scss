@@ -1,7 +1,7 @@
 .communities-container {
     max-width: 900px;
     margin: 0 auto;
-    paddding: 24px;
+    padding: 24px;
     color: lightslategray;
     font-family: monospace;
 }
@@ -11,11 +11,12 @@ a {
   text-decoration: none;
   padding: 4px 7px;
   border: 1px solid black;
-  background-color: lightcoral;
+  background-color: #fa593c;
   color: white;
   border-radius: 6px;
   &:hover {
-    background-color: #fa593c;
+    background-color: coral;
+    color: white;
   }
 }
 
@@ -25,25 +26,11 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
-    border-bottom: 1px solid #48bb78;
+    border-bottom: 1px solid lightslategray;
     padding-bottom: 12px;
     h2 {
         margin: 0;
         font-size: 1.5rem;
-    }
-}
-
-.btn-crate {
-    color: #48bb78;
-    border: 1px solid #48bb78;
-    padding: 8px 16px;
-    text-decoration: none;
-    font-family:monospace;
-    transition: all 0.2s ease;
-
-    &:hove {
-        background-color: #48bb78;
-        color: #000;
     }
 }
 
