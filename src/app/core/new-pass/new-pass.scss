@@ -15,6 +15,7 @@ h2 {
 
 h3 {
    align-items:center;
+   padding: 10px;
    font-size: 40px;
    display: table;
    color: black;
@@ -22,7 +23,6 @@ h3 {
    border-radius: 5px;
    margin: auto;
    background-color: lightblue;
-   background-clip:content-box;
 }
 
 .invalid-feedback {

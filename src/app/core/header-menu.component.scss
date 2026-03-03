@@ -15,6 +15,7 @@
     animation: glow 2s ease-in-out infinite alternate;
 }
 
+
 @keyframes glow {
     from {
         filter: drop-shadow(0 0 4px lightgray);

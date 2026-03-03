@@ -10,12 +10,12 @@ h3 {
    align-items:center;
    font-size: 40px;
    display: table;
+   padding: 10px;
    color: black;
    border: 2px solid bisque;
    border-radius: 5px;
    margin: auto;
    background-color: lightblue;
-   background-clip:content-box;
 }
 
 .invalid-feedback {

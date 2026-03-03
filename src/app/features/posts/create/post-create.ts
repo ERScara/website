@@ -8,7 +8,7 @@ import { PostService } from '../../../service/post.service';
   selector: 'app-post-create',
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './post-create.html',
-  styleUrl: './post-create.css',
+  styleUrl: './post-create.scss',
 })
 export class PostCreate implements OnInit {
   private fb = inject(FormBuilder);

@@ -4,6 +4,18 @@
   padding: 20px;
 }
 
+a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 4px 7px;
+  background-color: lightcoral;
+  color: white;
+  border-radius: 6px;
+  &:hover {
+    background-color: #fa593c;
+  }
+}
+
 .community-head {
   margin-bottom: 18px;
 }

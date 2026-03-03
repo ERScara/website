@@ -1,7 +1,8 @@
+ <a routerLink="/comunidades">← Volver a comunidades</a>
 <section class="community-create">
-  <a routerLink="/comunidades">← Volver a comunidades</a>
-  <h1>Crear comunidad</h1>
-
+ 
+  <h1>| Crear comunidad |</h1>
+  
   @if (error) {
     <p class="error">{{ error }}</p>
   }
@@ -14,7 +15,7 @@
     }
 
     <label for="description">Descripcion</label>
-    <textarea id="description" rows="5" formControlName="description" placeholder="De que trata esta comunidad"></textarea>
+    <textarea id="description" rows="5" formControlName="description" placeholder="¿De que trata esta comunidad?"></textarea>
     @if (form.controls.description.touched && form.controls.description.invalid) {
       <small class="error">La descripcion es obligatoria (min 10 caracteres).</small>
     }

@@ -2,9 +2,23 @@
     max-width: 900px;
     margin: 0 auto;
     paddding: 24px;
-    color: #48bb78;
+    color: lightslategray;
     font-family: monospace;
 }
+
+
+a {
+  text-decoration: none;
+  padding: 4px 7px;
+  border: 1px solid black;
+  background-color: lightcoral;
+  color: white;
+  border-radius: 6px;
+  &:hover {
+    background-color: #fa593c;
+  }
+}
+
 
 .communities-header {
     display: flex;

@@ -9,7 +9,7 @@ import { Community } from '../../../models/community.model';
   selector: 'app-community-create',
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './community-create.html',
-  styleUrl: './community-create.css',
+  styleUrl: './community-create.scss',
 })
 export class CommunityCreate {
   private fb = inject(FormBuilder);
@@ -21,7 +21,7 @@ export class CommunityCreate {
 
   readonly categories = [
     { value: 'advanced', label: 'Avanzado' },
-    { value: 'design', label: 'Diseno' },
+    { value: 'design', label: 'Diseño' },
     { value: 'common', label: 'Sala Comun' },
     { value: 'modelos', label: 'Modelos' },
   ];
