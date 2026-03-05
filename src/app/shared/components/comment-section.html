@@ -1,0 +1,149 @@
+<div>
+    <h3>Comentarios</h3>
+
+    @for (parent of comments; track parent.id) {
+        @if (!parent.parent) {
+        <div>
+            <section class="comment-form">
+                <div class="main-comments">
+                    @if (parent.username) {
+                        <small><strong>Usuario: {{ parent.username }}</strong>
+                            <br />
+                            @if (parent.is_superuser) {
+                                <small class="admin-badge" title="Administrador">Admin</small>
+                            }
+                            <br />
+                        </small>
+                    } @else {
+                        <small><strong>[Usuario Eliminado]</strong></small>
+                    }
+                    <br />
+                    <small>{{ parent.date | date:'dd/MM/yyyy HH:mm' }}</small>
+                    <br />
+                    <br />
+                    <div>
+                        @if (parent.is_deleted) {
+                            <p class="deleted">{{ parent.message }}</p>
+                        } @else {
+                            <p>{{ parent.message }}</p>
+                        }
+                    </div>
+
+                    <div class="container">
+                        @if (authService.IsLoggedIn() && !parent.is_deleted && parent.username !== 'Usuario Eliminado') {
+                            <button (click)="like(parent)" class="child-1" [class.active-like]="parent.user_vote === 'like'">+1</button>
+                        }
+                        <span>👍🏻 {{ parent.total_likes }}</span>
+                        @if (authService.IsLoggedIn() && !parent.is_deleted && parent.username !== 'Usuario Eliminado') {
+                            <button (click)="dislike(parent)" class="child-2" [class.active-dislike]="parent.user_vote === 'dislike'">+1</button>
+                        }
+                        <span>👎🏻 {{ parent.total_dislikes }}</span>
+                    </div>
+
+                    @if (authService.IsLoggedIn()) {
+                        @if (parent.username === authService.currentUser()?.username && !authService.currentUser()?.is_superuser) {
+                            @if (parent.is_reported_by_anyone) {
+                                <em>Tu comentario ha sido reportado.</em>
+                            }
+                        } @else if (authService.currentUser()?.is_superuser) {
+                            <span title="Revise el panel de administración.">[Modo Administrador]</span>
+                        } @else {
+                            @if (parent.has_reported) {
+                                <span>✅ Reportado</span>
+                            } @else if (!parent.is_deleted && parent.username !== 'Usuario Eliminado') {
+                                <button class="red-flag-btn" (click)="onReport(parent)">Reportar</button>
+                            }
+                        }
+                    }
+
+                    @if (authService.IsLoggedIn() && !parent.is_deleted && parent.username !== 'Usuario Eliminado') {
+                        <button (click)="setReply(parent)" class="form-button">Responder</button>
+                    }
+                     <br />
+                        <div>
+                            @if (((parent.username === authService.currentUser()?.username && !parent.is_deleted) || authService.currentUser()?.is_superuser) && !parent.is_deleted) {
+                                <button type="button" (click)="deleteComment(parent); $event.preventDefault()" class="delete-button">Eliminar Comentario</button>
+                            }
+                        </div>
+                    <br />
+                </div>
+               
+            </section>
+
+            <section class="reply-form">
+                @for (child of comments; track child.id) {
+                    @if (child.parent && isInThread(child, parent.id)) {
+                        <div class="reply comment-card">
+                            @if (child.username) {
+                                <small><strong>Usuario: {{ child.username }}</strong>
+                                    <br />
+                                    @if (child.is_superuser) {
+                                        <small class="admin-badge" title="Administrador">Admin</small>
+                                    }
+                                    <br />
+                                </small>
+                            } @else {
+                                <small><strong>[Usuario Eliminado]</strong></small>
+                            }
+                            <br />
+                            <small>{{ child.date | date:'dd/MM/yyyy HH:mm' }}</small>
+                            <span>Respondiendo a @{{ getReplyToName(child.parent) }}</span>
+                            <br />
+                            <div>
+                                @if (child.is_deleted) {
+                                    <p class="deleted">{{ child.message }}</p>
+                                } @else {
+                                    <p>{{ child.message }}</p>
+                                }
+                            </div>
+
+                            <div class="container">
+                                @if (authService.IsLoggedIn() && !child.is_deleted && child.username !== 'Usuario Eliminado') {
+                                    <button (click)="like(child)" class="child-1" [class.active-like]="child.user_vote === 'like'">+1</button>
+                                }
+                                <span>👍🏻 {{ child.total_likes }}</span>
+                                @if (authService.IsLoggedIn() && !child.is_deleted && child.username !== 'Usuario Eliminado') {
+                                    <button (click)="dislike(child)" class="child-2" [class.active-dislike]="child.user_vote === 'dislike'">+1</button>
+                                }
+                                <span>👎🏻 {{ child.total_dislikes }}</span>
+                            </div>
+
+                            @if (authService.IsLoggedIn() && !child.is_deleted && child.username !== 'Usuario Eliminado') {
+                                <button (click)="setReply(child)" class="form-button">Responder</button>
+                            }
+                            <br />
+                             <div>
+                                @if (((child.username === authService.currentUser()?.username && !child.is_deleted) || authService.currentUser()?.is_superuser) && !child.is_deleted) {
+                                    <button type="button" (click)="deleteComment(parent); $event.preventDefault()" class="delete-button">Eliminar Comentario</button>
+                                }
+                            </div>
+                            <br />
+                        </div>
+                    }
+                }
+            </section>
+        </div>
+        }
+    } @empty {
+        <p>No hay comentarios aún. ¡Sé el primero en comentar!</p>
+    }
+
+    @if (authService.IsLoggedIn()) {
+        <div class="new-comment">
+            <h4>Deja tu comentario:</h4>
+            @if (replyingTo) {
+                <div>
+                    Respondiendo a <strong>{{ replyingTo.username }}</strong>
+                    <button (click)="replyingTo = null">X</button>
+                </div>
+            }
+            <textarea [(ngModel)]="newComment" placeholder="Escribe algo..." maxlength="3000"></textarea>
+            <small>Caracteres: {{ newComment.length }} / 3000</small>
+            <button (click)="submitComment()" class="form-button" [disabled]="isSending || !newComment.trim()">
+                {{ isSending ? 'Enviando...' : 'Enviar Comentario' }}
+            </button>
+        </div>
+    } @else {
+        <p>Debes <a routerLink="/login">Iniciar Sesión</a> para comentar.</p>
+    }
+</div>

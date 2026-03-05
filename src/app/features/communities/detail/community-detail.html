@@ -26,14 +26,14 @@
         @for (post of posts; track post.id) {
           <article class="post-card">
             <a [routerLink]="['/comunidades', community.id, 'posts', post.id]">
-              <h3>{{ post.title }}</h3>
+              {{ post.title }}
             </a>
             <p>{{ post.content }}</p>
             <small>
               Autor: {{ post.author_username }} |
               Comentarios: {{ post.comment_count }} |
-              Likes: {{ post.total_likes }} |
-              Dislikes: {{ post.total_dislikes }}
+              Me gusta: {{ post.total_likes }} |
+              No me gusta: {{ post.total_dislikes }}
             </small>
           </article>
         }

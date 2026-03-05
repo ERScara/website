@@ -35,6 +35,8 @@ a {
 }
 
 .community-card {
+    position: relative;
+    gap: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,7 +50,6 @@ a {
     }
 
     .community-info {
-        flex: 1;
         a {
             text-decoration: none;
             color: #48bb78;

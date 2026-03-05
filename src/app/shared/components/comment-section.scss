@@ -1,3 +1,4 @@
+
 button {
     border-radius: 4px;
     &:hover {
@@ -32,7 +33,7 @@ button {
    padding-left: 10px;
    padding-right: 12px;
    width: 100%;
-   height:50%;
+   height:70%;
    max-width: 700px;
    border-radius: 6px;
    align-items:left;    
@@ -115,34 +116,6 @@ p {
     padding-right:5px;
     margin-left: 17px;
     border-radius: 5px;
-}
-
-table {
-    margin-top: 2px;
-    justify-content: center;
-    object-position:center;
-    border-radius: 6px solid;
-    table-layout: fixed;
-    text-align: center;
-    border: 2px;
-    margin: auto;
-    td {
-        letter-spacing: 1px;
-        font-weight: 400;
-        padding: 15px;
-        color: black;
-        border-radius:5px;
-        border-color: aliceblue;
-        background-color: rgb(132, 165, 204);
-    }
-    th {
-        background-color: burlywood;
-        padding: 15px;
-        border-radius:5px 5px 0 0;
-        color: black;
-        font-size: 30px;
-        font-weight: 600;
-    }
 }
 
 #gap-textarea {
@@ -243,10 +216,13 @@ table {
 
 .container {
     margin: 30%;
-    margin-top: 1%;
+    margin-top: 5%;
     margin-bottom: 1%;
     padding: 10px 5px;
+    font-size: 22px;
     display: flex;
+    align-items: center;
+    gap: 6px;
     background-color: #eeeccc;
     width: fit-content;
     border-radius: 5px;
@@ -261,42 +237,45 @@ table {
         font-size: 20px;
         cursor: pointer;
     }
-    div {
+    span, div {
         min-width: 70px;
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0;
+        line-height: 1;
         font-size: 20px;
         font-family: sans-serif;
     }
 }
 
-.child-1, .child-2 {
-    display: inline-block;
-    vertical-align: middle;
-    button {
-        background-color: aliceblue;
-    }
-    .active-like {
-        background-color: aqua;
-    }
-    .active-dislike {
-        background-color: aqua;
-    }
-}
-
-
 textarea {
     background-color: blanchedalmond;
     border-radius: 5px;
-    width: 425%;
-    max-width:2000px;
-    resize:vertical;
-    height: 200px;
+    height: 100px;
+    width: 100%;
+    resize: vertical;
+}
+
+.child-1, .child-2 {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: aliceblue;
+}
+
+.active-like,
+.active-dislike {
+    background-color: aqua;
+}
+
+.container button.active-like,
+.container button.active-dislike,
+.container button.active-like:hover,
+.container button.active-dislike:hover {
+    background-color: aqua;
 }
     
-
 #small {
     display:flex;
     border: 2px solid;

@@ -15,8 +15,32 @@
 </nav>
 <nav>
     <div class="search">
-       <input type="search" class="global-search" placeholder="Realiza una búsqueda...">
-       <small id="advanced">Consejos de búqueda avanzada</small>
+       <input type="search" class="global-search" placeholder="Realiza una búsqueda..." (input)="onGlobalSearch($event)">
+       @if (showGlobalResults) {
+        <div class="global-search-box">
+            <div class="global-search-results">
+            <span><b>Resultados de la búsqueda: </b></span>
+            @for (post of searchGlobalResults.posts; track post.id) {
+                <div class="search-item"> 
+               <a [routerLink]="['/comunidades', post.community, 'posts', post.id]">
+                {{ post.title }}
+               </a>
+               </div>
+            }
+        @if (searchGlobalResults.communities.length > 0) {
+            <span><b>Comunidades: </b></span>
+            @for (community of searchGlobalResults.communities; track community.id) {
+                <div class="search-item">
+                <a [routerLink]="['/comunidades', community.id]">
+                    {{ community.name }}
+                </a>
+                </div>
+            }
+        }
+        </div>
+        </div>
+       }
+       <!-- <small id="advanced">Consejos de búqueda avanzada</small> -->
     </div>
 </nav>
 <nav>

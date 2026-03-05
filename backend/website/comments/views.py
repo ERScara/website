@@ -51,6 +51,8 @@ class CommentsViewSet(viewsets.ModelViewSet):
         instance.delete()
 
     def get_queryset(self):
+        if self.action in ['toggle_like', 'toggle_dislike', 'report', 'has_reported', 'retrieve', 'destroy']:
+            return Comment.objects.all()
         cap_id = self.request.query_params.get('capitulo')
         post_id = self.request.query_params.get('post')
         queryset = Comment.objects.all().prefetch_related('replies')

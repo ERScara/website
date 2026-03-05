@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PostService } from '../../../service/post.service';
 
@@ -15,6 +15,7 @@ export class PostCreate implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private postService = inject(PostService);
+  private cdRef = inject(ChangeDetectorRef);
 
   communityId = 0;
   isSaving = false;
@@ -37,6 +38,7 @@ export class PostCreate implements OnInit {
   submit(): void {
     if (!this.communityId || this.form.invalid || this.isSaving) {
       this.form.markAllAsTouched();
+      this.cdRef.detectChanges();
       return;
     }
 

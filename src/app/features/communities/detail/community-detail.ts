@@ -1,9 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { CommunityService } from '../../../service/community.service';
 import { PostService } from '../../../service/post.service';
+import { AuthService } from '../../../service/auth.service';
 import { Community } from '../../../models/community.model';
 import { Post } from '../../../models/posts.model';
 
@@ -15,6 +16,8 @@ import { Post } from '../../../models/posts.model';
 })
 export class CommunityDetail implements OnInit {
   private route = inject(ActivatedRoute);
+  private authService = inject(AuthService);
+  private cdRef= inject(ChangeDetectorRef);
   private communityService = inject(CommunityService);
   private postService = inject(PostService);
   private communityId = 0;
@@ -29,6 +32,7 @@ export class CommunityDetail implements OnInit {
       this.route.snapshot.paramMap.get('id') ||
       this.route.snapshot.paramMap.get('communityId'),
     );
+    console.log('CommunityID:', this.communityId);
     if (!this.communityId) {
       this.error = 'Comunidad invalida.';
       this.isLoading = false;
@@ -45,6 +49,7 @@ export class CommunityDetail implements OnInit {
       .pipe(
         finalize(() => {
           this.isLoading = false;
+          this.cdRef.detectChanges();
         }),
       )
       .subscribe({
@@ -58,11 +63,14 @@ export class CommunityDetail implements OnInit {
   }
 
   private loadPosts(): void {
+    this.cdRef.detectChanges();
     this.postService
       .getPostsByCommunity(this.communityId)
       .subscribe({
         next: (posts: any) => {
           this.posts = Array.isArray(posts) ? posts : (posts?.results || []);
+          console.log("Posts:", this.posts);
+          this.cdRef.detectChanges();
         },
         error: () => {
           this.posts = [];

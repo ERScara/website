@@ -1,43 +1,39 @@
+<a [routerLink]="['/comunidades', communityId]" class="deco">← Volver a comunidad</a>
 <section class="post-detail">
   @if (isLoading) {
     <p>Cargando post...</p>
   } @else if (error) {
     <p class="error">{{ error }}</p>
   } @else if (post) {
-    <a [routerLink]="['/comunidades', communityId]">← Volver a comunidad</a>
     <h1>{{ post.title }}</h1>
+    <span><b>Descripción</b></span>
     <p>{{ post.content }}</p>
+    <span><b>Prompt</b></span>
+    <p>{{ post.prompt }}</p>
     <small>
       Autor: {{ post.author_username }} |
-      Likes: {{ post.total_likes }} |
-      Dislikes: {{ post.total_dislikes }}
+      Me gusta: {{ post.total_likes }} |
+      No me gusta: {{ post.total_dislikes }}
     </small>
+
+     <div class="container">
+        <div class="child-1">
+        @if(authService.IsLoggedIn()) {
+        <button (click)="like()" [class.active-like]="post.user_vote === 'like'">+1</button>
+        }
+        <div>👍🏻 {{ post.total_likes }}</div>
+        </div>
+        <div class="child-2">
+        @if(authService.IsLoggedIn()) {
+        <button (click)="dislike()" [class.active-dislike]="post.user_vote === 'dislike'">+1</button>
+        }
+        <div>👎🏻 {{ post.total_dislikes }}</div>
+        </div>
+    </div>
 
     <hr />
 
-    <h2>Comentarios</h2>
-    <div class="comment-form">
-      <textarea [(ngModel)]="newComment" rows="4" placeholder="Escribe un comentario"></textarea>
-      <button (click)="submitComment()" [disabled]="isSending || !newComment.trim()">
-        {{ isSending ? 'Enviando...' : 'Comentar' }}
-      </button>
-    </div>
-
-    @if (comments.length === 0) {
-      <p>No hay comentarios todavia.</p>
-    } @else {
-      <div class="comment-list">
-        @for (comment of comments; track comment.id) {
-          <article class="comment-item">
-            <p>{{ comment.message }}</p>
-            <small>
-              {{ comment.username }} | {{ comment.date | date:'short' }} |
-              Likes: {{ comment.total_likes }} |
-              Dislikes: {{ comment.total_dislikes || 0 }}
-            </small>
-          </article>
-        }
-      </div>
-    }
+    <app-comment-section [postId]="postId" />
   }
 </section>
+

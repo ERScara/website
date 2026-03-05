@@ -1,6 +1,6 @@
+<a [routerLink]="['/comunidades', communityId]">← Volver a comunidad</a>
 <section class="post-create">
-  <a [routerLink]="['/comunidades', communityId]">← Volver a comunidad</a>
-  <h1>Crear post</h1>
+  <h1>| Crear post |</h1>
 
   @if (error) {
     <p class="error">{{ error }}</p>
@@ -10,19 +10,19 @@
     <label for="title">Titulo</label>
     <input id="title" type="text" formControlName="title" placeholder="Titulo del post" />
     @if (form.controls.title.touched && form.controls.title.invalid) {
-      <small class="error">El titulo es obligatorio (5-200 caracteres).</small>
+      <em><small class="error">El titulo es obligatorio (5-200 caracteres).</small></em>
     }
 
     <label for="content">Descripcion</label>
     <textarea id="content" rows="5" formControlName="content" placeholder="Contexto del post"></textarea>
     @if (form.controls.content.touched && form.controls.content.invalid) {
-      <small class="error">La descripcion es obligatoria (min 10 caracteres).</small>
+      <em><small class="error">La descripcion es obligatoria (min 10 caracteres).</small></em>
     }
 
     <label for="prompt">Prompt</label>
     <textarea id="prompt" rows="6" formControlName="prompt" placeholder="Prompt principal"></textarea>
     @if (form.controls.prompt.touched && form.controls.prompt.invalid) {
-      <small class="error">El prompt es obligatorio (min 10 caracteres).</small>
+      <em><small class="error">El prompt es obligatorio (min 10 caracteres).</small></em>
     }
 
     <label for="target_model">Modelo objetivo (opcional)</label>

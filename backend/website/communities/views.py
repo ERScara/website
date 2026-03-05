@@ -52,6 +52,18 @@ class CommunityViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     @action(detail=True, methods=['post'])
+    def join(self, request, pk=None):
+        community = self.get_object()
+        membership, created = Membership.objects.get_or_create(
+            user=request.user,
+            community=community,
+            defaults={'role': 'member'}
+        )
+        if not created:
+            return Response({'detail': 'Ya eres miembro.'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'detail': 'Te uniste a la comunidad.'}, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=['post'])
     def leave(self, request, pk=None):
         community = self.get_object()
         membership=Membership.objects.filter(user=request.user, community=community).first()

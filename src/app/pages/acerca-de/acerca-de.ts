@@ -66,6 +66,7 @@ export class AcercaDe implements OnInit {
       date: [new Date().toISOString()],
     });
   }
+  
   getComments(){
     this.http.get('http://localhost:8000/api/comments/?capitulo=1').subscribe({
       next: (data: any) => {

@@ -15,14 +15,17 @@
         @for (community of communities; track community.id) {
             <div class="community-info">
                <a [routerLink]="['/comunidades', community.id]">
-                  <h3>{{ community.name }}</h3>
+                  {{ community.name }}
                </a>
-               <p>{{ community.name }}</p>
+               <br />
+               <br />
                <small>
                   Categoría: {{ community.category }} |
                   Miembros: {{ community.total_members }} |
                   Creada por: {{ community.creator_username }}
                </small>
+               <br />
+               <br />
             </div>
             <div class="community-actions">
                 @if (community.is_member) {

@@ -9,6 +9,8 @@ import { UserService } from '../service/user.service';
 import { ChatWebSocketService } from '../service/chat-websockets.service';
 import { ChangeDetectorRef } from '@angular/core';
 import { Message, Conversation} from '../models/feature.model';
+import { SearchService } from '../service/search.service';
+import { HostListener } from '@angular/core';
 
 
 @Component({
@@ -27,6 +29,7 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     public userService = inject(UserService);
     private cdRef = inject(ChangeDetectorRef);
     private wsService = inject(ChatWebSocketService);
+    private searchService = inject(SearchService);
     private chatCleared = false;
     public promptreplogo: string = 'assets/img/promptreplogo.svg';
     public readonly menuItems = [
@@ -47,6 +50,9 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     public currentUser: any = null;
     toSendText: '';
     newText: '';
+    searchQuery = '';
+    searchGlobalResults: any = { posts: [], communities: [], users: [] };
+    showGlobalResults = false;
     
     sendMessage() {
         if (!this.newText.trim() || !this.selectedConversation) {
@@ -83,6 +89,35 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
                 this.messages = this.messages.filter(m => m !== tempMessage);
             }
         }, 5000);
+    }
+
+    @HostListener('document:click', ['$event'])
+    onDocumentClick(event: MouseEvent): void {
+        const target = event.target as HTMLElement;
+        if (!target.closest('.search')) {
+            this.showGlobalResults = false;
+            this.cdRef.detectChanges();
+        }
+    }
+
+    onGlobalSearch(event: any): void {
+        const query= event.target.value.trim();
+        if (!query || query.length < 3) {
+            this.showGlobalResults = false;
+            this.searchGlobalResults = { posts: [], communities: [], users: [] };
+            this.cdRef.detectChanges();
+            return;
+        }
+        this.searchService.search(query).subscribe({
+            next: (data) => {
+                this.searchGlobalResults = data;
+                this.showGlobalResults = true;
+                this.cdRef.detectChanges();
+            },
+            error: (err) => {
+                console.error(err);
+            }
+        })
     }
 
     onSearch (event:any) {

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { finalize } from 'rxjs/operators';
@@ -13,6 +13,7 @@ import { Community } from '../../../models/community.model';
 })
 export class CommunityList implements OnInit {
     private communityService = inject(CommunityService);
+    private cdRef = inject(ChangeDetectorRef);
     communities: Community[] = [];
     isLoading = true;
     error: string | null = null;
@@ -23,6 +24,7 @@ export class CommunityList implements OnInit {
         .pipe(
           finalize(() => {
             this.isLoading = false;
+            this.cdRef.detectChanges();
           }),
         )
         .subscribe({
@@ -37,7 +39,11 @@ export class CommunityList implements OnInit {
     }
     join(community: Community) {
       this.communityService.joinCommunity(community.id).subscribe({
-        
+        next: (res) => {
+          community.is_member = true;
+          community.total_members++;
+        },
+        error: (err) => console.error('Error al unirse: ', err)
       });
     }
     leave(community: Community) {

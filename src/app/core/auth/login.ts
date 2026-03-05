@@ -30,8 +30,7 @@ export class Login {
     password: '',
    } as ContactForm;
 
-   private readonly fs = inject(FeatureService);
-   count = new FormControl(0)
+   count = new FormControl(0);
 
    public loginForm: FormGroup = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40), Validators.pattern('^[a-zA-Z0-9_]+$')]],
@@ -64,11 +63,9 @@ export class Login {
           }
         },
          error: (err) => {
-          console.log("Detalles del error", err)
+          console.log("Detalles del error: ", err)
           alert('Usuario o contraseña incorrectos en la base de datos.')
          }
       })
   }
 }
-
-
